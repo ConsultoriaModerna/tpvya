@@ -2,8 +2,8 @@
 // Crea un contacto en HubSpot con origen tpvya.com
 // Requiere env var: HUBSPOT_TOKEN (Private App Token de HubSpot)
 
-export default async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://tpvya.com');
+module.exports = async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -19,7 +19,6 @@ export default async function handler(req, res) {
   if (!token) return res.status(500).json({ error: 'Token no configurado' });
 
   try {
-    // Intentamos crear el contacto; si ya existe, actualizamos
     const response = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
       method: 'POST',
       headers: {
@@ -38,9 +37,9 @@ export default async function handler(req, res) {
     });
 
     if (response.status === 409) {
-      // Contacto ya existe — lo actualizamos con el origen
+      // Contacto ya existe — extraemos el ID del mensaje de error y actualizamos
       const existing = await response.json();
-      const existingId = existing.message?.match(/ID: (\d+)/)?.[1];
+      const existingId = existing.message && existing.message.match(/ID: (\d+)/)?.[1];
       if (existingId) {
         await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${existingId}`, {
           method: 'PATCH',
@@ -58,13 +57,13 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const err = await response.json();
-      console.error('HubSpot error:', err);
+      console.error('HubSpot error:', JSON.stringify(err));
       return res.status(500).json({ error: 'Error al registrar' });
     }
 
     return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error('Server error:', err);
+    console.error('Server error:', err.message);
     return res.status(500).json({ error: 'Error interno' });
   }
-}
+};
