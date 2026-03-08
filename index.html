@@ -126,7 +126,7 @@
     .big-claim h2{font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:700;text-transform:uppercase;line-height:1.05;max-width:900px}
     .big-claim h2 span{color:var(--red)}
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);margin-top:48px}
-    .pricing-card{background:var(--black);padding:40px 32px;position:relative}
+    .pricing-card{background:var(--black);padding:40px 32px;position:relative;display:flex;flex-direction:column}
     .pricing-card.featured{background:var(--gray);border:1px solid var(--red)}
     .pricing-card .badge{position:absolute;top:-1px;right:24px;background:var(--red);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px}
     .pricing-plan{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-light);margin-bottom:16px}
@@ -134,8 +134,12 @@
     .pricing-price sup{font-size:1.2rem;vertical-align:super}
     .pricing-price sub{font-size:1rem;font-weight:300;color:var(--gray-light)}
     .pricing-for{font-size:0.85rem;color:rgba(245,242,237,0.5);margin-top:8px;margin-bottom:28px}
-    .pricing-features{list-style:none;font-size:0.85rem;color:rgba(245,242,237,0.65);line-height:2}
+    .pricing-features{list-style:none;font-size:0.85rem;color:rgba(245,242,237,0.65);line-height:2;flex:1}
     .pricing-features li::before{content:'→ ';color:var(--red);font-family:var(--font-display)}
+    .pricing-cta{display:block;margin-top:32px;background:var(--red);color:var(--white);font-family:var(--font-display);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;padding:14px 20px;transition:background 0.2s}
+    .pricing-cta:hover{background:var(--red-dark)}
+    .pricing-cta.outline{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(245,242,237,0.7)}
+    .pricing-cta.outline:hover{background:rgba(255,255,255,0.06);color:var(--white)}
     .faq{background:var(--gray);border-top:1px solid rgba(255,255,255,0.06)}
     .faq-list{max-width:720px;margin-top:0}
     .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);padding:28px 0}
@@ -211,9 +215,46 @@
     <p class="section-label">Precios</p>
     <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;text-transform:uppercase;line-height:1.1;max-width:600px">Empieza gratis.<br>Escala cuando quieras.</h2>
     <div class="pricing-grid">
-      <div class="pricing-card"><p class="pricing-plan">Gratis</p><div class="pricing-price">0<sub> €/mes</sub></div><p class="pricing-for">Para el bar o café que empieza.</p><ul class="pricing-features"><li>1 terminal</li><li>Carta digital</li><li>Gestión de mesas</li><li>Cierre de caja diario</li><li>Soporte por chat</li></ul></div>
-      <div class="pricing-card featured"><span class="badge">Más popular</span><p class="pricing-plan">Starter</p><div class="pricing-price"><sup>€</sup>29<sub> /mes</sub></div><p class="pricing-for">Restaurante con terraza o 2 salas.</p><ul class="pricing-features"><li>Hasta 3 terminales</li><li>Todo del plan Gratis</li><li>Informes avanzados</li><li>Exportación de datos</li><li>Soporte prioritario</li></ul></div>
-      <div class="pricing-card"><p class="pricing-plan">Pro</p><div class="pricing-price"><sup>€</sup>59<sub> /mes</sub></div><p class="pricing-for">Cadena pequeña o multilocal.</p><ul class="pricing-features"><li>Terminales ilimitadas</li><li>Todo del plan Starter</li><li>Integración delivery</li><li>API abierta</li><li>Gestor de cuenta</li></ul></div>
+      <div class="pricing-card">
+        <p class="pricing-plan">Gratis</p>
+        <div class="pricing-price">0<sub> €/mes</sub></div>
+        <p class="pricing-for">Para el bar o café que empieza.</p>
+        <ul class="pricing-features">
+          <li>1 terminal</li>
+          <li>Carta digital</li>
+          <li>Gestión de mesas</li>
+          <li>Cierre de caja diario</li>
+          <li>Soporte por chat</li>
+        </ul>
+        <a href="#crear-cuenta" class="pricing-cta">Crear cuenta gratuita</a>
+      </div>
+      <div class="pricing-card featured">
+        <span class="badge">Más popular</span>
+        <p class="pricing-plan">Starter</p>
+        <div class="pricing-price"><sup>€</sup>29<sub> /mes</sub></div>
+        <p class="pricing-for">Restaurante con terraza o 2 salas.</p>
+        <ul class="pricing-features">
+          <li>Hasta 3 terminales</li>
+          <li>Todo del plan Gratis</li>
+          <li>Informes avanzados</li>
+          <li>Exportación de datos</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="#crear-cuenta" class="pricing-cta">Iniciar prueba 14 días gratis</a>
+      </div>
+      <div class="pricing-card">
+        <p class="pricing-plan">Pro</p>
+        <div class="pricing-price"><sup>€</sup>59<sub> /mes</sub></div>
+        <p class="pricing-for">Cadena pequeña o multilocal.</p>
+        <ul class="pricing-features">
+          <li>Terminales ilimitadas</li>
+          <li>Todo del plan Starter</li>
+          <li>Integración delivery</li>
+          <li>API abierta</li>
+          <li>Gestor de cuenta</li>
+        </ul>
+        <a href="#crear-cuenta" class="pricing-cta outline">Iniciar prueba 14 días gratis</a>
+      </div>
     </div>
   </section>
 
