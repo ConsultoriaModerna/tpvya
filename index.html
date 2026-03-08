@@ -143,9 +143,11 @@
     .pricing-card.featured{background:var(--gray);border:1px solid var(--red)}
     .pricing-card .badge{position:absolute;top:-1px;right:24px;background:var(--red);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px}
     .pricing-plan{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-light);margin-bottom:16px}
+    .pricing-price-wrap{position:relative;display:inline-flex;align-items:flex-start;gap:6px;margin-bottom:0}
     .pricing-price{font-family:var(--font-display);font-size:3.5rem;font-weight:700;line-height:1;color:var(--white)}
     .pricing-price sup{font-size:1.2rem;vertical-align:super}
     .pricing-price sub{font-size:1rem;font-weight:300;color:var(--gray-light)}
+    .free-callout{position:absolute;top:-6px;left:calc(100% - 12px);background:var(--amber);color:#0a0a0a;font-family:var(--font-display);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 9px;white-space:nowrap;transform:rotate(-12deg);transform-origin:left center;box-shadow:2px 2px 0 rgba(0,0,0,0.3)}
     .pricing-for{font-size:0.85rem;color:rgba(245,242,237,0.5);margin-top:8px;margin-bottom:28px}
     .pricing-features{list-style:none;font-size:0.85rem;color:rgba(245,242,237,0.65);line-height:2;flex:1}
     .pricing-features li::before{content:'→ ';color:var(--red);font-family:var(--font-display)}
@@ -153,8 +155,6 @@
     .pricing-cta:hover{background:var(--red-dark)}
     .pricing-cta.outline{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(245,242,237,0.7)}
     .pricing-cta.outline:hover{background:rgba(255,255,255,0.06);color:var(--white)}
-    .free-banner{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--amber);color:#0a0a0a;font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:8px 16px;margin:-40px -32px 28px;text-align:center}
-    .free-banner::before,.free-banner::after{content:'★';font-size:0.65rem}
     .faq{background:var(--gray);border-top:1px solid rgba(255,255,255,0.06)}
     .faq-list{max-width:720px;margin-top:0}
     .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);padding:28px 0}
@@ -180,7 +180,7 @@
     .footer-logo span{color:var(--red)}
     footer p{font-size:0.75rem;color:rgba(245,242,237,0.25)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:640px){nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}.free-banner{margin:-40px -20px 28px}}
+    @media(max-width:640px){nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}}
   </style>
 </head>
 <body>
@@ -231,9 +231,11 @@
     <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;text-transform:uppercase;line-height:1.1;max-width:600px">TPV gratis para empezar.<br>Escala cuando quieras.</h2>
     <div class="pricing-grid">
       <div class="pricing-card">
-        <div class="free-banner">Gratis para siempre</div>
         <p class="pricing-plan">TPV Gratis</p>
-        <div class="pricing-price">0<sub> €/mes</sub></div>
+        <div class="pricing-price-wrap">
+          <div class="pricing-price">0<sub> €/mes</sub></div>
+          <span class="free-callout">Gratis para siempre</span>
+        </div>
         <p class="pricing-for">Para el bar o café que empieza.</p>
         <ul class="pricing-features">
           <li>1 terminal TPV</li>
