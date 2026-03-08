@@ -81,8 +81,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- CHATFLOW HUBSPOT: pegar código de inserción aquí -->
-  <!-- CHATFLOW_PLACEHOLDER -->
+  <!-- HubSpot Tracking + Chatflow (Portal 139994805) -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/139994805.js"></script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -269,6 +269,11 @@
         if (res.ok) {
           document.getElementById('waitlistForm').style.display = 'none';
           document.getElementById('successMsg').style.display = 'block';
+          // Identificar el contacto en HubSpot para el chatflow
+          if (window._hsq) {
+            window._hsq.push(['identify', { email }]);
+            window._hsq.push(['trackPageView']);
+          }
         } else {
           throw new Error('Error');
         }
