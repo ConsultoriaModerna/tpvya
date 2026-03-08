@@ -167,7 +167,7 @@
 <body>
   <nav>
     <a href="/" class="logo">TPV<span>YA</span></a>
-    <a href="#early-access" class="cta-nav">Acceso Anticipado</a>
+    <a href="#crear-cuenta" class="cta-nav">Mi TPV Ya</a>
   </nav>
 
   <section class="hero">
@@ -181,7 +181,7 @@
       <div class="pill">100% en la <strong>nube</strong></div>
     </div>
     <div class="hero-cta">
-      <a href="#early-access" class="btn-primary">Solicitar Acceso</a>
+      <a href="#crear-cuenta" class="btn-primary">Crear cuenta gratis</a>
       <button class="btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Ver precios →</button>
     </div>
     <div class="hero-number">5'</div>
@@ -227,20 +227,20 @@
     </div>
   </section>
 
-  <section class="waitlist" id="early-access">
+  <section class="waitlist" id="crear-cuenta">
     <div class="waitlist-inner">
-      <p class="section-label">Acceso anticipado</p>
-      <h2>Sé el primero<br>en <span>probarlo.</span></h2>
-      <p>Estamos en fase de acceso anticipado. Deja tu email y te avisamos en cuanto podamos darte de alta. Sin spam, solo el aviso.</p>
+      <p class="section-label">Empieza hoy</p>
+      <h2>Configura tu TPV<br>en <span>minutos.</span></h2>
+      <p>Introduce tu email y te enviamos acceso inmediato. Gratis para 1 terminal. Sin tarjeta, sin contrato.</p>
       <form id="waitlistForm" onsubmit="handleSubmit(event)">
         <div class="form-row">
           <input type="email" id="emailInput" placeholder="tu@email.com" required autocomplete="email">
-          <button type="submit" id="submitBtn">Solicitar acceso</button>
+          <button type="submit" id="submitBtn">Crear cuenta</button>
         </div>
-        <p class="form-note">Sin spam. Sin permanencia. Solo el aviso de que estás dentro.</p>
+        <p class="form-note">Gratis para siempre en el plan básico. Sin permanencia.</p>
         <div class="error-msg" id="errorMsg">Algo fue mal. Inténtalo de nuevo.</div>
       </form>
-      <div class="success-msg" id="successMsg">✓ Recibido. Te avisamos en cuanto podamos darte de alta. Bienvenido a TPV Ya.</div>
+      <div class="success-msg" id="successMsg">✓ Listo. En breve recibes el acceso en tu email. Bienvenido a TPV Ya.</div>
     </div>
   </section>
 
@@ -251,7 +251,6 @@
   </footer>
 
   <script>
-    // Retry automático — maneja cold starts de Vercel en plan Free
     async function callWaitlist(email, attempt) {
       const res = await fetch('/api/waitlist', {
         method: 'POST',
@@ -259,7 +258,6 @@
         body: JSON.stringify({ email })
       });
       if (!res.ok && attempt < 2) {
-        // Espera 1.5s y reintenta una vez (cubre cold start)
         await new Promise(r => setTimeout(r, 1500));
         return callWaitlist(email, attempt + 1);
       }
@@ -288,7 +286,7 @@
         }
       } catch {
         btn.disabled = false;
-        btn.textContent = 'Solicitar acceso';
+        btn.textContent = 'Crear cuenta';
         errorMsg.style.display = 'block';
       }
     }
