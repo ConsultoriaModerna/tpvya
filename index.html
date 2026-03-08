@@ -3,21 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TPV Ya — El TPV más rápido y barato de España</title>
-  <meta name="description" content="Software TPV en la nube para hostelería. Gratis para 1 terminal. Alta en 5 minutos. Sin contrato. Sin instalaciones." />
-  <meta name="keywords" content="TPV hostelería, software TPV bar, TPV gratis restaurante, punto de venta hostelería España, TPV barato, TPV nube" />
+
+  <!-- SEO Primary -->
+  <title>TPV Ya — El TPV más rápido y barato de España | Software TPV Gratis para Hostelería</title>
+  <meta name="description" content="TPV gratis para bares y restaurantes. Alta en 5 minutos, sin contrato, sin instalaciones. El software de punto de venta más rápido y barato de España para hostelería." />
+  <meta name="keywords" content="TPV España, TPV gratis, TPV barato, TPV rápido, TPV hostelería, software TPV bar, software TPV restaurante, punto de venta hostelería, TPV nube, TPV tablet, caja registradora digital, programa TPV bar gratis" />
   <meta name="robots" content="index, follow" />
+  <meta name="author" content="TPV Ya" />
   <link rel="canonical" href="https://tpvya.com/" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tpvya.com/" />
   <meta property="og:title" content="TPV Ya — El TPV más rápido y barato de España" />
-  <meta property="og:description" content="Alta en 5 minutos. Gratis para 1 terminal. Sin contrato." />
+  <meta property="og:description" content="Alta en 5 minutos. Gratis para 1 terminal. Sin contrato. El TPV que funciona ya." />
+  <meta property="og:image" content="https://tpvya.com/og-image.png" />
   <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="TPV Ya" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"TPV Ya","url":"https://tpvya.com","description":"Software TPV en la nube para hostelería. El más rápido y barato de España.","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS, Android","offers":[{"@type":"Offer","name":"Plan Gratis","price":"0","priceCurrency":"EUR"},{"@type":"Offer","name":"Plan Starter","price":"29","priceCurrency":"EUR"}],"areaServed":{"@type":"Country","name":"España"}}</script>
+  <meta name="twitter:title" content="TPV Ya — El TPV más rápido y barato de España" />
+  <meta name="twitter:description" content="Alta en 5 minutos. Gratis para 1 terminal. Sin contrato." />
+
+  <!-- Structured Data: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TPV Ya",
+    "url": "https://tpvya.com",
+    "description": "Software de punto de venta TPV en la nube para hostelería. Alta en 5 minutos. Gratis para 1 terminal. El más rápido y barato de España.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "offers": [
+      {"@type": "Offer", "name": "Plan Gratis", "price": "0", "priceCurrency": "EUR"},
+      {"@type": "Offer", "name": "Plan Starter", "price": "29", "priceCurrency": "EUR"},
+      {"@type": "Offer", "name": "Plan Pro", "price": "59", "priceCurrency": "EUR"}
+    ],
+    "areaServed": {"@type": "Country", "name": "España"},
+    "inLanguage": "es"
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Es gratis el TPV para mi bar?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Sí. El plan Gratis de TPV Ya incluye 1 terminal, carta digital, gestión de mesas y cierre de caja diario, sin coste y sin fecha de caducidad."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tiempo tarda la instalación del TPV?",
+        "acceptedAnswer": {"@type": "Answer", "text": "El alta es en menos de 5 minutos desde cualquier tablet o móvil. No requiere instalación de hardware ni técnico."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito contratar permanencia?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. TPV Ya no tiene contrato de permanencia. Puedes cancelar cuando quieras sin penalización."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿En qué dispositivos funciona el TPV?",
+        "acceptedAnswer": {"@type": "Answer", "text": "TPV Ya funciona en cualquier tablet, móvil o pantalla con navegador web. Compatible con iOS, Android y escritorio."}
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- CHATFLOW HUBSPOT: pegar código de inserción aquí -->
+  <!-- CHATFLOW_PLACEHOLDER -->
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--black:#0a0a0a;--white:#f5f2ed;--red:#e8321a;--red-dark:#c2280e;--gray:#1a1a1a;--gray-light:#888;--font-display:'Oswald',sans-serif;--font-body:'DM Sans',sans-serif}
@@ -70,7 +136,12 @@
     .pricing-for{font-size:0.85rem;color:rgba(245,242,237,0.5);margin-top:8px;margin-bottom:28px}
     .pricing-features{list-style:none;font-size:0.85rem;color:rgba(245,242,237,0.65);line-height:2}
     .pricing-features li::before{content:'→ ';color:var(--red);font-family:var(--font-display)}
-    .waitlist{background:var(--gray);border-top:1px solid rgba(255,255,255,0.06)}
+    .faq{background:var(--gray);border-top:1px solid rgba(255,255,255,0.06)}
+    .faq-list{max-width:720px;margin-top:0}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);padding:28px 0}
+    .faq-q{font-family:var(--font-display);font-size:1.1rem;font-weight:600;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:10px;color:var(--white)}
+    .faq-a{font-size:0.9rem;color:rgba(245,242,237,0.55);line-height:1.7}
+    .waitlist{border-top:1px solid rgba(255,255,255,0.06)}
     .waitlist-inner{max-width:620px}
     .waitlist h2{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;line-height:1.05;margin-bottom:16px}
     .waitlist h2 span{color:var(--red)}
@@ -81,14 +152,16 @@
     .form-row input::placeholder{color:rgba(245,242,237,0.3)}
     .form-row button{background:var(--red);color:var(--white);border:none;font-family:var(--font-display);font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;padding:16px 28px;cursor:pointer;transition:background 0.2s;white-space:nowrap}
     .form-row button:hover{background:var(--red-dark)}
+    .form-row button:disabled{opacity:0.6;cursor:not-allowed}
     .form-note{margin-top:12px;font-size:0.75rem;color:rgba(245,242,237,0.3)}
     .success-msg{display:none;background:rgba(232,50,26,0.1);border:1px solid var(--red);padding:20px 24px;font-size:0.9rem;color:var(--white)}
+    .error-msg{display:none;background:rgba(255,100,50,0.1);border:1px solid rgba(255,100,50,0.4);padding:12px 20px;font-size:0.85rem;color:rgba(245,242,237,0.7);margin-top:12px}
     footer{padding:40px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
     .footer-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:0.04em}
     .footer-logo span{color:var(--red)}
     footer p{font-size:0.75rem;color:rgba(245,242,237,0.25)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:640px){nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}}
+    @media(max-width:640px){nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}}
   </style>
 </head>
 <body>
@@ -96,6 +169,7 @@
     <a href="/" class="logo">TPV<span>YA</span></a>
     <a href="#early-access" class="cta-nav">Acceso Anticipado</a>
   </nav>
+
   <section class="hero">
     <p class="hero-eyebrow">Software TPV · Hostelería · España</p>
     <h1>El TPV más rápido y<br><em>barato</em> de España.</h1>
@@ -112,23 +186,27 @@
     </div>
     <div class="hero-number">5'</div>
   </section>
+
   <div class="ticker" aria-hidden="true">
     <div class="ticker-inner">
       <span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">Gratis para 1 terminal</span><span class="ticker-item">Sin contrato</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Carta digital</span><span class="ticker-item">Informes en tiempo real</span><span class="ticker-item">Soporte en español</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">Gratis para 1 terminal</span><span class="ticker-item">Sin contrato</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Carta digital</span><span class="ticker-item">Informes en tiempo real</span><span class="ticker-item">Soporte en español</span>
     </div>
   </div>
+
   <section>
     <p class="section-label">Por qué TPV Ya</p>
     <div class="features-grid">
-      <div class="feature-card"><div class="feature-num">01</div><div class="feature-title">Velocidad</div><p class="feature-desc">Alta en 5 minutos desde el móvil. Funciona en cualquier tablet o pantalla que ya tengas. Tu carta lista en menos de un día.</p></div>
-      <div class="feature-card"><div class="feature-num">02</div><div class="feature-title">Precio</div><p class="feature-desc">Gratis para siempre con 1 terminal. Sin permanencia ni sorpresas. El TPV más barato del mercado para negocios de hasta 3 terminales.</p></div>
+      <div class="feature-card"><div class="feature-num">01</div><div class="feature-title">Velocidad</div><p class="feature-desc">Alta en 5 minutos desde el móvil. Funciona en cualquier tablet o pantalla que ya tengas. Tu carta lista en menos de un día. Sin esperar al técnico.</p></div>
+      <div class="feature-card"><div class="feature-num">02</div><div class="feature-title">Precio</div><p class="feature-desc">Gratis para siempre con 1 terminal. Sin permanencia ni sorpresas. El TPV más barato del mercado para bares y restaurantes de hasta 3 terminales.</p></div>
       <div class="feature-card"><div class="feature-num">03</div><div class="feature-title">Simplicidad</div><p class="feature-desc">Diseñado para el hostelero, no para el informático. Interfaz limpia, cobro en segundos. Soporte en español con respuesta en menos de 2 horas.</p></div>
       <div class="feature-card"><div class="feature-num">04</div><div class="feature-title">Confianza</div><p class="feature-desc">Datos en la nube. Informes de ventas en tiempo real desde el móvil. Tickets y facturas con cumplimiento fiscal automático desde el día uno.</p></div>
     </div>
   </section>
+
   <div class="big-claim">
     <h2>La hostelería no debería<br>necesitar un informático<br>para <span>cobrar una cerveza.</span></h2>
   </div>
+
   <section id="pricing">
     <p class="section-label">Precios</p>
     <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;text-transform:uppercase;line-height:1.1;max-width:600px">Empieza gratis.<br>Escala cuando quieras.</h2>
@@ -138,30 +216,76 @@
       <div class="pricing-card"><p class="pricing-plan">Pro</p><div class="pricing-price"><sup>€</sup>59<sub> /mes</sub></div><p class="pricing-for">Cadena pequeña o multilocal.</p><ul class="pricing-features"><li>Terminales ilimitadas</li><li>Todo del plan Starter</li><li>Integración delivery</li><li>API abierta</li><li>Gestor de cuenta</li></ul></div>
     </div>
   </section>
+
+  <!-- FAQ — también alimenta el SEO con schema FAQPage -->
+  <section class="faq">
+    <p class="section-label">Preguntas frecuentes</p>
+    <div class="faq-list">
+      <div class="faq-item"><p class="faq-q">¿Es gratis el TPV para mi bar?</p><p class="faq-a">Sí. El plan Gratis de TPV Ya incluye 1 terminal, carta digital, gestión de mesas y cierre de caja diario, sin coste y para siempre.</p></div>
+      <div class="faq-item"><p class="faq-q">¿Cuánto tiempo tarda la instalación?</p><p class="faq-a">El alta es en menos de 5 minutos desde cualquier tablet o móvil. No requiere instalación de hardware ni técnico especializado.</p></div>
+      <div class="faq-item"><p class="faq-q">¿Necesito contratar permanencia?</p><p class="faq-a">No. TPV Ya no tiene contrato de permanencia. Puedes cancelar cuando quieras sin coste ni penalización.</p></div>
+      <div class="faq-item"><p class="faq-q">¿En qué dispositivos funciona?</p><p class="faq-a">En cualquier tablet, móvil o pantalla con navegador web. Compatible con iPad, Android y cualquier PC. El hardware que ya tienes es suficiente.</p></div>
+    </div>
+  </section>
+
   <section class="waitlist" id="early-access">
     <div class="waitlist-inner">
       <p class="section-label">Acceso anticipado</p>
       <h2>Sé el primero<br>en <span>probarlo.</span></h2>
-      <p>Estamos en fase de acceso anticipado. Deja tu email y te avisamos cuando podamos darte de alta. Sin spam, solo el aviso.</p>
+      <p>Estamos en fase de acceso anticipado. Deja tu email y te avisamos en cuanto podamos darte de alta. Sin spam, solo el aviso.</p>
       <form id="waitlistForm" onsubmit="handleSubmit(event)">
         <div class="form-row">
           <input type="email" id="emailInput" placeholder="tu@email.com" required autocomplete="email">
-          <button type="submit">Solicitar acceso</button>
+          <button type="submit" id="submitBtn">Solicitar acceso</button>
         </div>
         <p class="form-note">Sin spam. Sin permanencia. Solo el aviso de que estás dentro.</p>
+        <div class="error-msg" id="errorMsg">Algo fue mal. Inténtalo de nuevo.</div>
       </form>
       <div class="success-msg" id="successMsg">✓ Recibido. Te avisamos en cuanto podamos darte de alta. Bienvenido a TPV Ya.</div>
     </div>
   </section>
+
   <footer>
     <div class="footer-logo">TPV<span>YA</span></div>
     <p>El TPV más rápido y barato de España — tpvya.com</p>
     <p>© 2025 TPV Ya. Todos los derechos reservados.</p>
   </footer>
+
   <script>
-    function handleSubmit(e){e.preventDefault();document.getElementById('waitlistForm').style.display='none';document.getElementById('successMsg').style.display='block';}
-    const obs=new IntersectionObserver(entries=>entries.forEach(el=>{if(el.isIntersecting){el.target.style.opacity='1';el.target.style.transform='translateY(0)'}}),{threshold:0.1});
-    document.querySelectorAll('.feature-card,.pricing-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.5s ease,transform 0.5s ease';obs.observe(el);});
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      const btn = document.getElementById('submitBtn');
+      const errorMsg = document.getElementById('errorMsg');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      errorMsg.style.display = 'none';
+      try {
+        const res = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ email })
+        });
+        if (res.ok) {
+          document.getElementById('waitlistForm').style.display = 'none';
+          document.getElementById('successMsg').style.display = 'block';
+        } else {
+          throw new Error('Error');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Solicitar acceso';
+        errorMsg.style.display = 'block';
+      }
+    }
+    const obs = new IntersectionObserver(entries => entries.forEach(el => {
+      if (el.isIntersecting) { el.target.style.opacity='1'; el.target.style.transform='translateY(0)'; }
+    }), {threshold: 0.1});
+    document.querySelectorAll('.feature-card,.pricing-card,.faq-item').forEach(el => {
+      el.style.opacity='0'; el.style.transform='translateY(20px)';
+      el.style.transition='opacity 0.5s ease,transform 0.5s ease';
+      obs.observe(el);
+    });
   </script>
 </body>
 </html>
