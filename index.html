@@ -143,11 +143,29 @@
     .pricing-card.featured{background:var(--gray);border:1px solid var(--red)}
     .pricing-card .badge{position:absolute;top:-1px;right:24px;background:var(--red);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px}
     .pricing-plan{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-light);margin-bottom:16px}
-    .pricing-price-wrap{position:relative;display:inline-flex;align-items:flex-start;gap:6px;margin-bottom:0}
+    /* Wrap shrinks to fit just the price digits */
+    .pricing-price-wrap{position:relative;display:inline-block;align-self:flex-start}
     .pricing-price{font-family:var(--font-display);font-size:3.5rem;font-weight:700;line-height:1;color:var(--white)}
     .pricing-price sup{font-size:1.2rem;vertical-align:super}
     .pricing-price sub{font-size:1rem;font-weight:300;color:var(--gray-light)}
-    .free-callout{position:absolute;top:-6px;left:calc(100% - 12px);background:var(--amber);color:#0a0a0a;font-family:var(--font-display);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 9px;white-space:nowrap;transform:rotate(-12deg);transform-origin:left center;box-shadow:2px 2px 0 rgba(0,0,0,0.3)}
+    /* Badge anchored to top-right corner of the price number, rotated */
+    .free-callout{
+      position:absolute;
+      top:-10px;
+      left:calc(100% + 6px);
+      background:var(--amber);
+      color:#0a0a0a;
+      font-family:var(--font-display);
+      font-size:0.6rem;
+      font-weight:700;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      padding:4px 10px;
+      white-space:nowrap;
+      transform:rotate(-12deg);
+      transform-origin:left top;
+      box-shadow:2px 2px 0 rgba(0,0,0,0.35);
+    }
     .pricing-for{font-size:0.85rem;color:rgba(245,242,237,0.5);margin-top:8px;margin-bottom:28px}
     .pricing-features{list-style:none;font-size:0.85rem;color:rgba(245,242,237,0.65);line-height:2;flex:1}
     .pricing-features li::before{content:'→ ';color:var(--red);font-family:var(--font-display)}
