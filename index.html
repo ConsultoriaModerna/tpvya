@@ -217,7 +217,6 @@
     </div>
   </section>
 
-  <!-- FAQ — también alimenta el SEO con schema FAQPage -->
   <section class="faq">
     <p class="section-label">Preguntas frecuentes</p>
     <div class="faq-list">
@@ -252,6 +251,21 @@
   </footer>
 
   <script>
+    // Retry automático — maneja cold starts de Vercel en plan Free
+    async function callWaitlist(email, attempt) {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ email })
+      });
+      if (!res.ok && attempt < 2) {
+        // Espera 1.5s y reintenta una vez (cubre cold start)
+        await new Promise(r => setTimeout(r, 1500));
+        return callWaitlist(email, attempt + 1);
+      }
+      return res;
+    }
+
     async function handleSubmit(e) {
       e.preventDefault();
       const email = document.getElementById('emailInput').value;
@@ -261,15 +275,10 @@
       btn.textContent = 'Enviando...';
       errorMsg.style.display = 'none';
       try {
-        const res = await fetch('/api/waitlist', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ email })
-        });
+        const res = await callWaitlist(email, 1);
         if (res.ok) {
           document.getElementById('waitlistForm').style.display = 'none';
           document.getElementById('successMsg').style.display = 'block';
-          // Identificar el contacto en HubSpot para el chatflow
           if (window._hsq) {
             window._hsq.push(['identify', { email }]);
             window._hsq.push(['trackPageView']);
@@ -283,6 +292,7 @@
         errorMsg.style.display = 'block';
       }
     }
+
     const obs = new IntersectionObserver(entries => entries.forEach(el => {
       if (el.isIntersecting) { el.target.style.opacity='1'; el.target.style.transform='translateY(0)'; }
     }), {threshold: 0.1});
