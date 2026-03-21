@@ -100,34 +100,59 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- Analytics deferred: GA4 + Clarity + HubSpot load after page render -->
+  <!-- Cookie Consent + Analytics (GDPR/LSSI-CE) -->
   <script>
-    window.addEventListener('load', function() {
-      // GA4
-      var ga = document.createElement('script');
-      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-QJDSTBNVQ5';
-      ga.async = true;
-      document.head.appendChild(ga);
-      ga.onload = function() {
-        window.dataLayer = window.dataLayer || [];
+  (function(){
+    var CK='tpvya_cookies', consent=localStorage.getItem(CK);
+    window._hsq=window._hsq||[];
+
+    function loadGA4(){
+      var s=document.createElement('script');
+      s.src='https://www.googletagmanager.com/gtag/js?id=G-QJDSTBNVQ5';
+      s.async=true;document.head.appendChild(s);
+      s.onload=function(){
+        window.dataLayer=window.dataLayer||[];
         function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-QJDSTBNVQ5');
+        window.gtag=gtag;
+        gtag('js',new Date());
+        gtag('config','G-QJDSTBNVQ5',{linker:{domains:['panel.tpvya.com'],accept_incoming:true}});
       };
-      // Clarity
+    }
+    function loadClarity(){
       (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "vsns51uim4");
-      // HubSpot
-      var hs = document.createElement('script');
-      hs.src = '//js-eu1.hs-scripts.com/139994805.js';
-      hs.async = true;
-      hs.defer = true;
-      document.head.appendChild(hs);
-    });
+      })(window,document,"clarity","script","vsns51uim4");
+    }
+    function loadHubSpot(){
+      var s=document.createElement('script');
+      s.src='//js-eu1.hs-scripts.com/139994805.js';
+      s.async=true;document.head.appendChild(s);
+    }
+    function loadAll(){loadGA4();loadClarity();loadHubSpot();}
+
+    function showBanner(){
+      var b=document.createElement('div');b.id='cookieBanner';
+      b.innerHTML='<p>Usamos cookies para analítica y para el chat de soporte. Sin ellas el sitio funciona igual.</p>'+
+        '<div class="cookie-btns">'+
+        '<button onclick="window._tpvC.accept()">Aceptar</button>'+
+        '<button onclick="window._tpvC.decline()" class="cookie-decline">Solo necesarias</button>'+
+        '</div>';
+      document.body.appendChild(b);
+    }
+
+    window._tpvC={
+      accept:function(){localStorage.setItem(CK,'ok');var b=document.getElementById('cookieBanner');if(b)b.remove();loadAll();},
+      decline:function(){localStorage.setItem(CK,'no');var b=document.getElementById('cookieBanner');if(b)b.remove();}
+    };
+
+    if(consent==='ok') loadAll();
+    else if(consent!=='no'){
+      if(document.readyState==='complete') showBanner();
+      else window.addEventListener('load',showBanner);
+    }
+  })();
   </script>
 
   <style>
@@ -231,8 +256,14 @@
     .footer-logo span{color:var(--red)}
     footer p{font-size:0.75rem;color:rgba(245,242,237,0.25)}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    #cookieBanner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--gray);border-top:1px solid rgba(255,255,255,0.1);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:0.85rem;color:rgba(245,242,237,0.7);animation:fadeUp 0.4s ease}
+    #cookieBanner p{flex:1;margin:0;line-height:1.5}
+    .cookie-btns{display:flex;gap:8px;flex-shrink:0}
+    .cookie-btns button{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;padding:10px 20px;border:none;cursor:pointer;transition:background 0.2s}
+    .cookie-btns button:first-child{background:var(--red);color:var(--white)}.cookie-btns button:first-child:hover{background:var(--red-dark)}
+    .cookie-decline{background:transparent;border:1px solid rgba(255,255,255,0.2)!important;color:rgba(245,242,237,0.5)}.cookie-decline:hover{background:rgba(255,255,255,0.06)!important;color:var(--white)}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:640px){nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}}
+    @media(max-width:640px){nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}#cookieBanner{flex-direction:column;padding:16px 20px;text-align:center}.cookie-btns{justify-content:center}}
   </style>
 </head>
 <body>
@@ -367,50 +398,70 @@
   </footer>
 
   <script>
-    async function callWaitlist(email, attempt) {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ email })
+    // --- UTM capture ---
+    var utmParams={};
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){
+      var v=new URLSearchParams(location.search).get(k);
+      if(v) utmParams[k]=v;
+    });
+    function appendUtms(url){
+      var u=new URL(url);
+      Object.keys(utmParams).forEach(function(k){u.searchParams.set(k,utmParams[k]);});
+      return u.toString();
+    }
+    // Forward UTMs to all panel links
+    document.querySelectorAll('a[href*="panel.tpvya.com"]').forEach(function(a){
+      if(Object.keys(utmParams).length) a.href=appendUtms(a.href);
+    });
+
+    // --- GA4 events on CTA clicks ---
+    document.querySelectorAll('a[href*="panel.tpvya.com"]').forEach(function(a){
+      a.addEventListener('click',function(){
+        if(window.gtag) gtag('event','cta_click',{event_category:'conversion',event_label:a.textContent.trim()});
       });
-      if (!res.ok && attempt < 2) {
-        await new Promise(r => setTimeout(r, 1500));
-        return callWaitlist(email, attempt + 1);
+    });
+
+    // --- Waitlist + signup ---
+    async function callWaitlist(email,attempt){
+      var body=Object.assign({email:email},utmParams);
+      var res=await fetch('/api/waitlist',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(body)
+      });
+      if(!res.ok&&attempt<2){
+        await new Promise(function(r){setTimeout(r,1500);});
+        return callWaitlist(email,attempt+1);
       }
       return res;
     }
 
-    async function handleSubmit(e) {
+    async function handleSubmit(e){
       e.preventDefault();
-      const email = document.getElementById('emailInput').value;
-      const btn = document.getElementById('submitBtn');
-      const errorMsg = document.getElementById('errorMsg');
-      btn.disabled = true;
-      btn.textContent = 'Enviando...';
-      errorMsg.style.display = 'none';
-      try {
-        const res = await callWaitlist(email, 1);
-        if (res.ok) {
-          if (window._hsq) {
-            window._hsq.push(['identify', { email }]);
-            window._hsq.push(['trackPageView']);
-          }
-          window.location.href = 'https://panel.tpvya.com/login?email=' + encodeURIComponent(email);
-        } else {
-          throw new Error('Error');
-        }
-      } catch {
-        btn.disabled = false;
-        btn.textContent = 'Crear cuenta';
-        errorMsg.style.display = 'block';
+      var email=document.getElementById('emailInput').value;
+      var btn=document.getElementById('submitBtn');
+      var errorMsg=document.getElementById('errorMsg');
+      btn.disabled=true;btn.textContent='Enviando...';errorMsg.style.display='none';
+      try{
+        var res=await callWaitlist(email,1);
+        if(res.ok){
+          window._hsq.push(['identify',{email:email}]);
+          window._hsq.push(['trackPageView']);
+          if(window.gtag) gtag('event','generate_lead',{event_category:'conversion',method:'email_form'});
+          var redirect='https://panel.tpvya.com/login?email='+encodeURIComponent(email);
+          window.location.href=Object.keys(utmParams).length?appendUtms(redirect):redirect;
+        }else{throw new Error('Error');}
+      }catch(err){
+        btn.disabled=false;btn.textContent='Crear cuenta';errorMsg.style.display='block';
       }
     }
 
-    const obs = new IntersectionObserver(entries => entries.forEach(el => {
-      if (el.isIntersecting) { el.target.style.opacity='1'; el.target.style.transform='translateY(0)'; }
-    }), {threshold: 0.1});
-    document.querySelectorAll('.feature-card,.pricing-card,.faq-item').forEach(el => {
-      el.style.opacity='0'; el.style.transform='translateY(20px)';
+    // --- Scroll animations ---
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(el){
+      if(el.isIntersecting){el.target.style.opacity='1';el.target.style.transform='translateY(0)';}
+    });},{threshold:0.1});
+    document.querySelectorAll('.feature-card,.pricing-card,.faq-item').forEach(function(el){
+      el.style.opacity='0';el.style.transform='translateY(20px)';
       el.style.transition='opacity 0.5s ease,transform 0.5s ease';
       obs.observe(el);
     });
