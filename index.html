@@ -12,6 +12,10 @@
   <meta name="author" content="TPV Ya" />
   <link rel="canonical" href="https://tpvya.com/" />
 
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0a0a'/><text x='50' y='72' font-family='system-ui' font-size='52' font-weight='900' fill='%23f5f2ed' text-anchor='middle'>T<tspan fill='%23e8321a'>Y</tspan></text></svg>" type="image/svg+xml" />
+  <meta name="theme-color" content="#0a0a0a" />
+
   <!-- Señales geográficas España -->
   <meta name="geo.region" content="ES" />
   <meta name="geo.placename" content="España" />
@@ -32,6 +36,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TPV Gratis para Bares y Restaurantes | TPV Barato en España" />
   <meta name="twitter:description" content="Alta en 5 minutos. TPV gratis. Sin contrato. El TPV más barato de España." />
+  <meta name="twitter:image" content="https://tpvya.com/og-image.png" />
 
   <!-- Structured Data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -89,13 +94,41 @@
   }
   </script>
 
-  <!-- Fonts -->
+  <!-- Fonts (preconnect + preload for LCP) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- HubSpot Tracking + Chatflow (Portal 139994805) -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/139994805.js"></script>
+  <!-- Analytics deferred: GA4 + Clarity + HubSpot load after page render -->
+  <script>
+    window.addEventListener('load', function() {
+      // GA4
+      var ga = document.createElement('script');
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-QJDSTBNVQ5';
+      ga.async = true;
+      document.head.appendChild(ga);
+      ga.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-QJDSTBNVQ5');
+      };
+      // Clarity
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "vsns51uim4");
+      // HubSpot
+      var hs = document.createElement('script');
+      hs.src = '//js-eu1.hs-scripts.com/139994805.js';
+      hs.async = true;
+      hs.defer = true;
+      document.head.appendChild(hs);
+    });
+  </script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -197,16 +230,18 @@
     .footer-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:0.04em}
     .footer-logo span{color:var(--red)}
     footer p{font-size:0.75rem;color:rgba(245,242,237,0.25)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     @media(max-width:640px){nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}}
   </style>
 </head>
 <body>
-  <nav>
-    <a href="/" class="logo">TPV<span>YA</span></a>
+  <nav aria-label="Principal">
+    <a href="/" class="logo" aria-label="TPV Ya — Inicio">TPV<span>YA</span></a>
     <a href="https://panel.tpvya.com/login" class="cta-nav">Mi TPV Ya</a>
   </nav>
 
+  <main>
   <section class="hero">
     <p class="hero-eyebrow">TPV para Hostelería · Gratis · España</p>
     <h1>El TPV más rápido y<br><em>barato</em> de España.</h1>
@@ -310,8 +345,9 @@
       <p class="section-label">Empieza hoy</p>
       <h2>Tu TPV listo<br>en <span>minutos.</span></h2>
       <p>Introduce tu email y activa tu TPV de forma inmediata. Gratis para 1 terminal. Sin tarjeta, sin contrato.</p>
-      <form id="waitlistForm" onsubmit="handleSubmit(event)">
+      <form id="waitlistForm" onsubmit="handleSubmit(event)" aria-label="Registro gratuito">
         <div class="form-row">
+          <label for="emailInput" class="sr-only">Correo electrónico</label>
           <input type="email" id="emailInput" placeholder="tu@email.com" required autocomplete="email">
           <button type="submit" id="submitBtn">Crear cuenta</button>
         </div>
@@ -321,6 +357,8 @@
       <div class="success-msg" id="successMsg">✓ Listo. En breve recibes el acceso en tu email. Bienvenido a TPV Ya.</div>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <div class="footer-logo">TPV<span>YA</span></div>
@@ -353,12 +391,11 @@
       try {
         const res = await callWaitlist(email, 1);
         if (res.ok) {
-          document.getElementById('waitlistForm').style.display = 'none';
-          document.getElementById('successMsg').style.display = 'block';
           if (window._hsq) {
             window._hsq.push(['identify', { email }]);
             window._hsq.push(['trackPageView']);
           }
+          window.location.href = 'https://panel.tpvya.com/login?email=' + encodeURIComponent(email);
         } else {
           throw new Error('Error');
         }
