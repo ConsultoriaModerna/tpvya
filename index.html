@@ -144,7 +144,7 @@
 
     function showBanner(){
       var b=document.createElement('div');b.id='cookieBanner';
-      b.innerHTML='<p>Usamos cookies para analítica y para el chat de soporte. Sin ellas el sitio funciona igual.</p>'+
+      b.innerHTML='<p>Usamos cookies para analítica y para el chat de soporte. Sin ellas el sitio funciona igual. <a href="/privacidad" style="color:inherit;text-decoration:underline">Más info</a></p>'+
         '<div class="cookie-btns">'+
         '<button onclick="window._tpvC.accept()">Aceptar</button>'+
         '<button onclick="window._tpvC.decline()" class="cookie-decline">Solo necesarias</button>'+
@@ -206,6 +206,20 @@
     .big-claim{border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:80px 40px;overflow:hidden}
     .big-claim h2{font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:700;text-transform:uppercase;line-height:1.05;max-width:900px}
     .big-claim h2 span{color:var(--red)}
+    .big-claim-rotator{position:relative;min-height:clamp(8rem,18vw,16rem)}
+    .big-claim-phrase{position:absolute;top:0;left:0;opacity:0;transition:opacity 1s ease}
+    .big-claim-phrase.active{opacity:1}
+    .re-block{margin-top:56px;border-top:1px solid rgba(255,255,255,0.08);padding-top:48px}
+    .re-eyebrow{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--amber);margin-bottom:20px}
+    .re-headline{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;text-transform:uppercase;line-height:1.1;margin-bottom:16px}
+    .re-headline span{color:var(--red)}
+    .re-desc{font-size:0.9rem;color:rgba(245,242,237,0.55);line-height:1.7;max-width:520px;margin-bottom:28px}
+    .re-verticals{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+    .re-tag{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:5px 14px;font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-light)}
+    .re-markets{display:flex;flex-wrap:wrap;gap:6px}
+    .re-market{font-size:0.75rem;color:rgba(245,242,237,0.35);letter-spacing:0.04em}
+    .re-market::after{content:'·';margin-left:6px;color:rgba(255,255,255,0.15)}
+    .re-market:last-child::after{display:none}
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);margin-top:48px}
     .pricing-card{background:var(--black);padding:40px 32px;position:relative;display:flex;flex-direction:column}
     .pricing-card.featured{background:var(--gray);border:1px solid var(--red)}
@@ -241,6 +255,19 @@
     .pricing-cta:hover{background:var(--red-dark)}
     .pricing-cta.outline{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(245,242,237,0.7)}
     .pricing-cta.outline:hover{background:rgba(255,255,255,0.06);color:var(--white)}
+    .ps-engine{border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .ps-intro{margin-bottom:64px}
+    .ps-heading{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;text-transform:uppercase;line-height:1.05}
+    .ps-heading span{color:var(--red)}
+    .ps-sub{margin-top:24px;font-size:1rem;font-weight:300;color:rgba(245,242,237,0.6);line-height:1.7;max-width:600px;margin-bottom:28px}
+    .ps-services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06)}
+    .ps-service{background:var(--black);padding:44px 36px;transition:background 0.2s}
+    .ps-service:hover{background:var(--gray)}
+    .ps-service-num{font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:12px}
+    .ps-service-name{font-family:var(--font-display);font-size:1.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px}
+    .ps-service-name span{color:var(--red);text-transform:lowercase}
+    .ps-service-tag{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:16px}
+    .ps-service-desc{font-size:0.88rem;color:rgba(245,242,237,0.5);line-height:1.7}
     .faq{background:var(--gray);border-top:1px solid rgba(255,255,255,0.06)}
     .faq-list{max-width:720px;margin-top:0}
     .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);padding:28px 0}
@@ -312,7 +339,7 @@
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-inner">
-      <span class="ticker-item">TPV gratis para bares</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">TPV barato España</span><span class="ticker-item">Soporte incluido</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Carta digital</span><span class="ticker-item">Soporte técnico total</span><span class="ticker-item">Informes en tiempo real</span><span class="ticker-item">TPV gratis para bares</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">TPV barato España</span><span class="ticker-item">Soporte incluido</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Carta digital</span><span class="ticker-item">Soporte técnico total</span><span class="ticker-item">Informes en tiempo real</span>
+      <span class="ticker-item">TPV gratis para bares</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">TPV barato España</span><span class="ticker-item">Soporte incluido</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Plug and Sales</span><span class="ticker-item">Waiters.club</span><span class="ticker-item">Informes en tiempo real</span><span class="ticker-item">TPV gratis para bares</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">TPV barato España</span><span class="ticker-item">Soporte incluido</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Plug and Sales</span><span class="ticker-item">Waiters.club</span><span class="ticker-item">Informes en tiempo real</span>
     </div>
   </div>
 
@@ -327,7 +354,10 @@
   </section>
 
   <div class="big-claim">
-    <h2>La hostelería no debería<br>necesitar un informático<br>para <span>cobrar una cerveza.</span></h2>
+    <div class="big-claim-rotator">
+      <h2 class="big-claim-phrase active">La hostelería no debería<br>necesitar un informático<br>para <span>cobrar una cerveza.</span></h2>
+      <h2 class="big-claim-phrase">The revenue engine<br>for brands that reach consumers<br>through <span>hospitality.</span></h2>
+    </div>
   </div>
 
   <!-- SOPORTE TÉCNICO -->
@@ -368,6 +398,55 @@
   <div class="big-claim">
     <h2 style="font-size:clamp(1.4rem,3.5vw,2.5rem);max-width:700px">Construido por gente de hostelería, para gente de hostelería. Sabemos lo que necesitas porque <span>lo vemos cada día.</span></h2>
   </div>
+
+  <section class="ps-engine" id="plug-and-sales">
+    <p class="section-label">Plug and Sales · Revenue Engine</p>
+    <div class="ps-intro">
+      <h2 class="ps-heading">El motor de ingresos para<br>empresas que quieren llegar<br>al <span>consumidor final</span><br>a través de la hostelería.</h2>
+      <p class="ps-sub">Plug and Sales conecta marcas de Foodtech, Fintech, SaaS y Lifestyle con los locales, los equipos y los clientes de hostelería. Un canal de distribución, activación y venta que no existía.</p>
+      <div class="re-verticals">
+        <span class="re-tag">Foodtech</span>
+        <span class="re-tag">Fintech</span>
+        <span class="re-tag">SaaS</span>
+        <span class="re-tag">Lifestyle</span>
+      </div>
+      <div class="re-markets">
+        <span class="re-market">Spain</span>
+        <span class="re-market">France</span>
+        <span class="re-market">Italy</span>
+        <span class="re-market">USA</span>
+        <span class="re-market">Mexico</span>
+        <span class="re-market">Argentina</span>
+        <span class="re-market">Brazil</span>
+      </div>
+    </div>
+    <div class="ps-services-grid">
+      <div class="ps-service">
+        <div class="ps-service-num">01</div>
+        <div class="ps-service-name">B2T</div>
+        <p class="ps-service-tag">Business to Team</p>
+        <p class="ps-service-desc">Llega directo al camarero. Las marcas motivan, forman y recompensan al equipo de sala para que recomiende, active y venda su producto al consumidor final.</p>
+      </div>
+      <div class="ps-service">
+        <div class="ps-service-num">02</div>
+        <div class="ps-service-name">WAITERS<span>.club</span></div>
+        <p class="ps-service-tag">La comunidad</p>
+        <p class="ps-service-desc">Red de profesionales de sala. Perfil, formación, retos entre equipos y rewards de marcas. El canal donde la hostelería recompensa a quien la hace funcionar.</p>
+      </div>
+      <div class="ps-service">
+        <div class="ps-service-num">03</div>
+        <div class="ps-service-name">Loyalty</div>
+        <p class="ps-service-tag">Fidelización en punto de venta</p>
+        <p class="ps-service-desc">Programas de fidelización embebidos en el TPV. Las marcas lanzan campañas de loyalty directo en el momento del consumo, sin apps extra para el cliente final.</p>
+      </div>
+      <div class="ps-service">
+        <div class="ps-service-num">04</div>
+        <div class="ps-service-name">Payments</div>
+        <p class="ps-service-tag">Wallet y pagos integrados</p>
+        <p class="ps-service-desc">Fintechs y wallets se integran en el flujo de cobro del local. El consumidor paga como quiere, la marca captura el dato, el hostelero cobra al instante.</p>
+      </div>
+    </div>
+  </section>
 
   <section id="pricing">
     <p class="section-label">Precios del TPV</p>
@@ -456,6 +535,7 @@
   <footer>
     <div class="footer-logo">TPV<span>YA</span></div>
     <p>TPV gratis y barato para hostelería en España — tpvya.com</p>
+    <p style="margin-top:8px"><a href="/privacidad" style="color:var(--gray-light);text-decoration:none;font-size:0.85rem">Privacidad y Cookies</a></p>
     <p>© 2026 TPV Ya. Todos los derechos reservados.</p>
   </footer>
 
@@ -518,11 +598,23 @@
       }
     }
 
+    // --- Big claim rotator ---
+    (function(){
+      var phrases=document.querySelectorAll('.big-claim-phrase');
+      if(phrases.length<2) return;
+      var idx=0;
+      setInterval(function(){
+        phrases[idx].classList.remove('active');
+        idx=(idx+1)%phrases.length;
+        phrases[idx].classList.add('active');
+      },5000);
+    })();
+
     // --- Scroll animations ---
     var obs=new IntersectionObserver(function(entries){entries.forEach(function(el){
       if(el.isIntersecting){el.target.style.opacity='1';el.target.style.transform='translateY(0)';}
     });},{threshold:0.1});
-    document.querySelectorAll('.feature-card,.pricing-card,.faq-item,.support-card,.support-price-box').forEach(function(el){
+    document.querySelectorAll('.feature-card,.pricing-card,.faq-item,.support-card,.support-price-box,.ps-service').forEach(function(el){
       el.style.opacity='0';el.style.transform='translateY(20px)';
       el.style.transition='opacity 0.5s ease,transform 0.5s ease';
       obs.observe(el);
