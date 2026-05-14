@@ -589,6 +589,9 @@
         if(res.ok){
           window._hsq.push(['identify',{email:email}]);
           window._hsq.push(['trackPageView']);
+          if(window.clarity){window.clarity('identify',email);window.clarity('set','email',email);window.clarity('set','source','signup_form');}
+          var cid=(document.cookie.match(/_clck=([^|;]+)/)||[])[1]||'';
+          if(cid) window._hsq.push(['identify',{clarity_user_id:cid}]);
           if(window.gtag) gtag('event','generate_lead',{event_category:'conversion',method:'email_form'});
           var redirect='https://panel.tpvya.com/login?email='+encodeURIComponent(email);
           window.location.href=Object.keys(utmParams).length?appendUtms(redirect):redirect;
@@ -608,6 +611,48 @@
         idx=(idx+1)%phrases.length;
         phrases[idx].classList.add('active');
       },5000);
+    })();
+
+    // --- Clarity + HubSpot chatflow integration ---
+    (function(){
+      function getClarityId(){return(document.cookie.match(/_clck=([^|;]+)/)||[])[1]||'';}
+
+      function identifyClarity(email,source){
+        if(window.clarity){
+          window.clarity('identify',email);
+          window.clarity('set','email',email);
+          window.clarity('set','source',source||'chatflow');
+        }
+        var cid=getClarityId();
+        if(cid){
+          window._hsq=window._hsq||[];
+          window._hsq.push(['identify',{clarity_user_id:cid}]);
+          window._hsq.push(['trackPageView']);
+        }
+      }
+
+      // HubSpot Conversations — chatflow contact association
+      window.hsConversationsOnReady=window.hsConversationsOnReady||[];
+      window.hsConversationsOnReady.push(function(){
+        window.HubSpotConversations.on('contactAssociated',function(){
+          var cid=getClarityId();
+          if(cid){
+            window._hsq=window._hsq||[];
+            window._hsq.push(['identify',{clarity_user_id:cid}]);
+            window._hsq.push(['trackPageView']);
+          }
+          if(window.clarity) window.clarity('set','source','chatflow');
+        });
+      });
+
+      // HubSpot form submissions within chatflow (email capture step)
+      window.addEventListener('message',function(e){
+        if(e.data&&e.data.type==='hsFormCallback'&&e.data.eventName==='onFormSubmit'){
+          var email='';
+          (e.data.data||[]).forEach(function(f){if(f.name==='email') email=f.value;});
+          if(email) identifyClarity(email,'chatflow');
+        }
+      });
     })();
 
     // --- Scroll animations ---
