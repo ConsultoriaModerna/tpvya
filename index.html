@@ -569,14 +569,15 @@
     });
 
     // --- Conversion events on CTA clicks ---
+    // LTV: €50/mes × 24 meses = €1200. CTA click = intent signal only.
     document.querySelectorAll('a[href*="panel.tpvya.com"]').forEach(function(a){
       a.addEventListener('click',function(){
         var label=a.textContent.trim();
         if(window.gtag){
           gtag('event','cta_click',{event_category:'conversion',event_label:label});
-          gtag('event','conversion',{send_to:'AW-17677182853/CKzOCJnihrQbEIXPke1B',value:25.0,currency:'EUR'});
+          gtag('event','conversion',{send_to:'AW-17677182853/CKzOCJnihrQbEIXPke1B',value:5.0,currency:'EUR'});
         }
-        if(window.fbq) fbq('track','InitiateCheckout',{content_name:label,currency:'EUR',value:25.0});
+        if(window.fbq) fbq('track','InitiateCheckout',{content_name:label,currency:'EUR',value:5.0});
       });
     });
 
@@ -609,11 +610,12 @@
           if(window.clarity){window.clarity('identify',email);window.clarity('set','email',email);window.clarity('set','source','signup_form');}
           var cid=(document.cookie.match(/_clck=([^|;]+)/)||[])[1]||'';
           if(cid) window._hsq.push(['identify',{clarity_user_id:cid}]);
+          // Signup value: ~10% free→paid × €1200 LTV = €120
           if(window.gtag){
-            gtag('event','generate_lead',{event_category:'conversion',method:'email_form',value:50.0,currency:'EUR'});
-            gtag('event','conversion',{send_to:'AW-17677182853/CKzOCJnihrQbEIXPke1B',value:50.0,currency:'EUR'});
+            gtag('event','generate_lead',{event_category:'conversion',method:'email_form',value:120.0,currency:'EUR'});
+            gtag('event','conversion',{send_to:'AW-17677182853/CKzOCJnihrQbEIXPke1B',value:120.0,currency:'EUR'});
           }
-          if(window.fbq) fbq('track','Lead',{content_name:'signup_form',currency:'EUR',value:50.0});
+          if(window.fbq) fbq('track','Lead',{content_name:'signup_form',currency:'EUR',value:120.0});
           var redirect='https://panel.tpvya.com/login?email='+encodeURIComponent(email);
           window.location.href=Object.keys(utmParams).length?appendUtms(redirect):redirect;
         }else{throw new Error('Error');}
