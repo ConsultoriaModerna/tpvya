@@ -115,18 +115,28 @@
   (function(){
     var CK='tpvya_cookies', consent=localStorage.getItem(CK);
     window._hsq=window._hsq||[];
+    window.dataLayer=window.dataLayer||[];
 
     function loadGA4(){
       var s=document.createElement('script');
       s.src='https://www.googletagmanager.com/gtag/js?id=G-QJDSTBNVQ5';
       s.async=true;document.head.appendChild(s);
       s.onload=function(){
-        window.dataLayer=window.dataLayer||[];
         function gtag(){dataLayer.push(arguments);}
         window.gtag=gtag;
         gtag('js',new Date());
         gtag('config','G-QJDSTBNVQ5',{linker:{domains:['panel.tpvya.com'],accept_incoming:true}});
+        gtag('config','AW-17677182853');
       };
+    }
+    function loadMetaPixel(){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init','946685810445336');
+      fbq('track','PageView');
     }
     function loadClarity(){
       (function(c,l,a,r,i,t,y){
@@ -140,7 +150,7 @@
       s.src='//js-eu1.hs-scripts.com/139994805.js';
       s.async=true;document.head.appendChild(s);
     }
-    function loadAll(){loadGA4();loadClarity();loadHubSpot();}
+    function loadAll(){loadGA4();loadMetaPixel();loadClarity();loadHubSpot();}
 
     function showBanner(){
       var b=document.createElement('div');b.id='cookieBanner';
@@ -314,6 +324,8 @@
   </style>
 </head>
 <body>
+  <!-- Meta Pixel noscript fallback -->
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=946685810445336&ev=PageView&noscript=1" /></noscript>
   <nav aria-label="Principal">
     <a href="/" class="logo" aria-label="TPV Ya — Inicio">TPV<span>YA</span></a>
     <a href="https://panel.tpvya.com/login" class="cta-nav">Mi TPV Ya</a>
@@ -556,10 +568,15 @@
       if(Object.keys(utmParams).length) a.href=appendUtms(a.href);
     });
 
-    // --- GA4 events on CTA clicks ---
+    // --- Conversion events on CTA clicks ---
     document.querySelectorAll('a[href*="panel.tpvya.com"]').forEach(function(a){
       a.addEventListener('click',function(){
-        if(window.gtag) gtag('event','cta_click',{event_category:'conversion',event_label:a.textContent.trim()});
+        var label=a.textContent.trim();
+        if(window.gtag){
+          gtag('event','cta_click',{event_category:'conversion',event_label:label});
+          gtag('event','conversion',{send_to:'AW-17677182853/CKzOCJnihrQbEIXPke1B',value:25.0,currency:'EUR'});
+        }
+        if(window.fbq) fbq('track','InitiateCheckout',{content_name:label,currency:'EUR',value:25.0});
       });
     });
 
@@ -592,7 +609,11 @@
           if(window.clarity){window.clarity('identify',email);window.clarity('set','email',email);window.clarity('set','source','signup_form');}
           var cid=(document.cookie.match(/_clck=([^|;]+)/)||[])[1]||'';
           if(cid) window._hsq.push(['identify',{clarity_user_id:cid}]);
-          if(window.gtag) gtag('event','generate_lead',{event_category:'conversion',method:'email_form'});
+          if(window.gtag){
+            gtag('event','generate_lead',{event_category:'conversion',method:'email_form',value:50.0,currency:'EUR'});
+            gtag('event','conversion',{send_to:'AW-17677182853/CKzOCJnihrQbEIXPke1B',value:50.0,currency:'EUR'});
+          }
+          if(window.fbq) fbq('track','Lead',{content_name:'signup_form',currency:'EUR',value:50.0});
           var redirect='https://panel.tpvya.com/login?email='+encodeURIComponent(email);
           window.location.href=Object.keys(utmParams).length?appendUtms(redirect):redirect;
         }else{throw new Error('Error');}
