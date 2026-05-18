@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Guia de inicio rapido | TPV Ya</title>
+  <meta name="description" content="Configura tu TPV Ya en 3 pasos: carga tu carta, invita a tu equipo y cobra tu primer pedido. Guia paso a paso." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://tpvya.com/guia" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0a0a'/><text x='50' y='72' font-family='system-ui' font-size='52' font-weight='900' fill='%23f5f2ed' text-anchor='middle'>T<tspan fill='%23e8321a'>Y</tspan></text></svg>" type="image/svg+xml" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://tpvya.com/guia" />
+  <meta property="og:title" content="Guia de inicio rapido | TPV Ya" />
+  <meta property="og:description" content="Configura tu TPV en 3 pasos. Carta, equipo y primer cobro." />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="TPV Ya" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Cookie Consent + Analytics (GDPR/LSSI-CE) -->
+  <script>
+  (function(){
+    var CK='tpvya_cookies', consent=localStorage.getItem(CK);
+    window._hsq=window._hsq||[];
+    function loadGA4(){
+      var s=document.createElement('script');
+      s.src='https://www.googletagmanager.com/gtag/js?id=G-QJDSTBNVQ5';
+      s.async=true;document.head.appendChild(s);
+      s.onload=function(){
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag=gtag;
+        gtag('js',new Date());
+        gtag('config','G-QJDSTBNVQ5',{linker:{domains:['panel.tpvya.com'],accept_incoming:true}});
+      };
+    }
+    function loadClarity(){
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window,document,"clarity","script","vsns51uim4");
+    }
+    function loadHubSpot(){
+      var s=document.createElement('script');
+      s.src='//js-eu1.hs-scripts.com/139994805.js';
+      s.async=true;document.head.appendChild(s);
+    }
+    function loadAll(){loadGA4();loadClarity();loadHubSpot();}
+    if(consent==='ok') loadAll();
+  })();
+  </script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#0a0a0a;--white:#f5f2ed;--red:#e8321a;--red-dark:#c2280e;--gray:#1a1a1a;--gray-light:#888;--font-display:'Oswald',sans-serif;--font-body:'DM Sans',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--black);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 40px;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .logo{font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:0.04em;color:var(--white);text-decoration:none}
+    .logo span{color:var(--red)}
+    nav a.cta-nav{background:var(--red);color:var(--white);font-family:var(--font-display);font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;padding:10px 22px;transition:background 0.2s}
+    nav a.cta-nav:hover{background:var(--red-dark)}
+
+    .hero-guide{padding:140px 40px 60px;max-width:800px;margin:0 auto}
+    .hero-guide .eyebrow{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+    .hero-guide h1{font-family:var(--font-display);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;text-transform:uppercase;margin-bottom:20px}
+    .hero-guide h1 em{font-style:normal;color:var(--red)}
+    .hero-guide .subtitle{font-size:1.1rem;font-weight:300;color:rgba(245,242,237,0.6);max-width:520px;line-height:1.7}
+
+    .steps{max-width:800px;margin:0 auto;padding:0 40px 80px}
+
+    .step{border-top:1px solid rgba(255,255,255,0.08);padding:48px 0}
+    .step-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:20px}
+    .step-num{font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--red);line-height:1;flex-shrink:0}
+    .step-title{font-family:var(--font-display);font-size:1.5rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding-top:8px}
+    .step-body{color:rgba(245,242,237,0.65);font-size:0.95rem;line-height:1.8}
+    .step-body strong{color:var(--white)}
+    .step-body ul{list-style:none;margin:12px 0}
+    .step-body ul li{padding:4px 0}
+    .step-body ul li::before{content:'-> ';color:var(--red);font-family:var(--font-display)}
+
+    .tip-box{background:rgba(232,50,26,0.08);border-left:3px solid var(--red);padding:16px 20px;margin:16px 0;font-size:0.9rem;color:rgba(245,242,237,0.75)}
+    .tip-box strong{color:var(--white)}
+
+    .step-cta{display:inline-block;margin-top:20px;background:var(--red);color:var(--white);font-family:var(--font-display);font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:14px 28px;transition:background 0.2s}
+    .step-cta:hover{background:var(--red-dark)}
+
+    .final-cta{max-width:800px;margin:0 auto;padding:0 40px 100px;text-align:center}
+    .final-cta h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;text-transform:uppercase;line-height:1.1;margin-bottom:16px}
+    .final-cta h2 span{color:var(--red)}
+    .final-cta p{font-size:0.95rem;color:rgba(245,242,237,0.5);margin-bottom:32px}
+
+    footer{padding:40px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .footer-logo{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:0.04em}
+    .footer-logo span{color:var(--red)}
+    footer p{font-size:0.75rem;color:rgba(245,242,237,0.25)}
+
+    @media(max-width:640px){
+      nav{padding:16px 20px}
+      .hero-guide{padding:120px 20px 40px}
+      .steps{padding:0 20px 60px}
+      .final-cta{padding:0 20px 60px}
+      footer{padding:32px 20px;flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Principal">
+    <a href="/" class="logo" aria-label="TPV Ya — Inicio">TPV<span>YA</span></a>
+    <a href="https://panel.tpvya.com/login" class="cta-nav">Mi TPV Ya</a>
+  </nav>
+
+  <main>
+    <div class="hero-guide">
+      <p class="eyebrow">Guia de inicio</p>
+      <h1>Tu TPV listo en<br><em>3 pasos.</em></h1>
+      <p class="subtitle">Configura tu carta, invita a tu equipo y cobra tu primer pedido. Todo desde el movil o tablet, en menos de 15 minutos.</p>
+    </div>
+
+    <div class="steps">
+
+      <!-- PASO 1 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">01</div>
+          <div class="step-title">Carga tu carta</div>
+        </div>
+        <div class="step-body">
+          <p>Entra en <strong>Menu</strong> desde el panel lateral. Tienes dos formas de cargar tu carta:</p>
+          <ul>
+            <li><strong>Manual:</strong> Crea categorias (Entrantes, Principales, Bebidas...) y anade productos con nombre, precio e IVA.</li>
+            <li><strong>OCR automatico:</strong> Sube una foto de tu carta en papel y la IA la convierte en productos digitales en segundos.</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Consejo:</strong> Asigna el IVA correcto a cada producto (10% general hosteleria, 21% alcohol, 4% pan). El sistema lo desglosa automaticamente en los tickets.
+          </div>
+          <p>Cada producto puede tener <strong>modificadores</strong> (tamanos, extras) y asignarse a una <strong>estacion de cocina</strong> (cocina, plancha, bar) para que los pedidos lleguen donde corresponde.</p>
+          <a href="https://panel.tpvya.com/menu" class="step-cta">Ir a Menu</a>
+        </div>
+      </div>
+
+      <!-- PASO 2 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">02</div>
+          <div class="step-title">Invita a tu equipo</div>
+        </div>
+        <div class="step-body">
+          <p>Ve a <strong>Equipo</strong> y anade a tus camareros y cocineros. Hay dos formas:</p>
+          <ul>
+            <li><strong>Por email:</strong> Envia una invitacion y se unen con un clic.</li>
+            <li><strong>QR de fichaje:</strong> Imprime el QR del local y los camareros se dan de alta escaneandolo con su movil. Sin emails, sin contrasenas.</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Roles disponibles:</strong> Manager (acceso completo), Camarero (POS + mesas) y Cocina (solo pantalla cocina). Asigna el rol adecuado a cada persona.
+          </div>
+          <p>Los camareros que se unen por QR entran directamente en <strong>modo PDA</strong> — ven el TPV optimizado para movil, toman pedidos mesa por mesa y reciben alertas cuando la cocina tiene un plato listo.</p>
+          <a href="https://panel.tpvya.com/team" class="step-cta">Ir a Equipo</a>
+        </div>
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">03</div>
+          <div class="step-title">Cobra tu primer pedido</div>
+        </div>
+        <div class="step-body">
+          <p>Ve al <strong>POS</strong>, selecciona una mesa, anade productos al pedido y pulsa <strong>Enviar</strong>. El pedido llega a la cocina en tiempo real.</p>
+          <ul>
+            <li>Cuando el pedido este listo, el camarero recibe una <strong>alerta sonora</strong> en su movil.</li>
+            <li>Para cobrar, pulsa en la mesa y selecciona <strong>Cobrar</strong>. Elige metodo de pago: efectivo, tarjeta o bizum.</li>
+            <li>El cliente recibe un <strong>ticket digital QR</strong> si lo deseas — sin papel, sin impresora.</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Funciones avanzadas:</strong> Dividir cuenta (partes iguales o por items), aplicar descuentos, pedidos para llevar, y notas especiales por plato ("sin gluten", "poco hecho").
+          </div>
+          <a href="https://panel.tpvya.com/pos" class="step-cta">Ir al POS</a>
+        </div>
+      </div>
+
+      <!-- BONUS -->
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">+</div>
+          <div class="step-title">Configura lo esencial</div>
+        </div>
+        <div class="step-body">
+          <p>Para sacar el maximo partido a tu TPV Ya:</p>
+          <ul>
+            <li><strong>Ajustes > Datos fiscales:</strong> Rellena NIF y razon social para que aparezcan en tickets y facturas.</li>
+            <li><strong>Mesas:</strong> Personaliza los nombres de tus mesas (Terraza 1, Barra 3, Sala VIP...).</li>
+            <li><strong>Caja:</strong> Al final del dia, haz el cierre de caja para cuadrar efectivo y tarjeta.</li>
+            <li><strong>Dashboard:</strong> Consulta ventas, productos estrella y rendimiento del equipo en tiempo real.</li>
+          </ul>
+          <a href="https://panel.tpvya.com/settings" class="step-cta">Ir a Ajustes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="final-cta">
+      <h2>Listo. Tu TPV<br>ya <span>funciona.</span></h2>
+      <p>Si necesitas ayuda, escribe al chat de soporte dentro del panel o contactanos en hola@tpvya.com.</p>
+      <a href="https://panel.tpvya.com/login" class="step-cta">Entrar a mi TPV Ya</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">TPV<span>YA</span></div>
+    <p>Guia de inicio rapido — tpvya.com/guia</p>
+    <p>&copy; 2026 TPV Ya. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Scroll animations
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(el){
+      if(el.isIntersecting){el.target.style.opacity='1';el.target.style.transform='translateY(0)';}
+    });},{threshold:0.1});
+    document.querySelectorAll('.step').forEach(function(el){
+      el.style.opacity='0';el.style.transform='translateY(20px)';
+      el.style.transition='opacity 0.5s ease,transform 0.5s ease';
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>
