@@ -180,10 +180,14 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--black:#0a0a0a;--white:#f5f2ed;--red:#e8321a;--red-dark:#c2280e;--gray:#1a1a1a;--gray-light:#888;--amber:#f5c542;--font-display:'Oswald',sans-serif;--font-body:'DM Sans',sans-serif}
     html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;scroll-padding-top:80px}
     body{background:var(--black);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 40px;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
     .logo{font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:0.04em;color:var(--white);text-decoration:none}
     .logo span{color:var(--red)}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a.nav-link{font-family:var(--font-display);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,237,0.5);text-decoration:none;transition:color 0.2s}
+    .nav-links a.nav-link:hover{color:var(--white)}
     nav a.cta-nav{background:var(--red);color:var(--white);font-family:var(--font-display);font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;padding:10px 22px;transition:background 0.2s}
     nav a.cta-nav:hover{background:var(--red-dark)}
     .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 40px 80px;position:relative;overflow:hidden}
@@ -300,7 +304,7 @@
     @media(max-width:640px){
       .scroll-hint{display:block;text-align:center;padding:16px 0 0;opacity:0;animation:fadeUp 0.7s ease forwards 0.8s}
       .scroll-hint span{display:inline-block;font-size:1.4rem;color:rgba(245,242,237,0.35);animation:bounce 1.8s ease-in-out infinite}
-      nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}#cookieBanner{flex-direction:column;padding:16px 20px;text-align:center}.cookie-btns{justify-content:center}}
+      nav{padding:16px 20px}.nav-links a.nav-link{display:none}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}#cookieBanner{flex-direction:column;padding:16px 20px;text-align:center}.cookie-btns{justify-content:center}}
   </style>
 </head>
 <body>
@@ -308,7 +312,12 @@
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=946685810445336&ev=PageView&noscript=1" /></noscript>
   <nav aria-label="Principal">
     <a href="/" class="logo" aria-label="TPV Ya — Inicio">TPV<span>YA</span></a>
-    <a href="https://panel.tpvya.com/login" class="cta-nav">Mi TPV Ya</a>
+    <div class="nav-links">
+      <a href="#pricing" class="nav-link">Precios</a>
+      <a href="#soporte" class="nav-link">Soporte</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="https://panel.tpvya.com/login" class="cta-nav">Mi TPV Ya</a>
+    </div>
   </nav>
 
   <main>
@@ -440,7 +449,7 @@
     </div>
   </section>
 
-  <section class="faq">
+  <section class="faq" id="faq">
     <p class="section-label">Preguntas frecuentes sobre el TPV</p>
     <div class="faq-list">
       <details class="faq-item"><summary>¿Es gratis el TPV para mi bar?</summary><p class="faq-a">Sí. El plan Gratis de TPV Ya incluye 1 terminal TPV, carta digital, gestión de mesas y cierre de caja diario, sin coste y para siempre.</p></details>
