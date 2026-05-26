@@ -209,28 +209,13 @@
     section{padding:100px 40px}
     .section-label{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--red);margin-bottom:48px}
     .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06)}
-    .feature-card{background:var(--black);padding:48px 40px;transition:background 0.2s}
-    .feature-card:hover{background:var(--gray)}
+    .feature-card{background:var(--black);padding:48px 40px;cursor:default}
     .feature-num{font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:16px}
     .feature-title{font-family:var(--font-display);font-size:1.4rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:16px}
     .feature-desc{font-size:0.9rem;color:rgba(245,242,237,0.55);line-height:1.7}
-    .big-claim{border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:80px 40px;overflow:hidden}
+    .big-claim{border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:80px 40px}
     .big-claim h2{font-family:var(--font-display);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:700;text-transform:uppercase;line-height:1.05;max-width:900px}
     .big-claim h2 span{color:var(--red)}
-    .big-claim-rotator{position:relative;min-height:clamp(8rem,18vw,16rem)}
-    .big-claim-phrase{position:absolute;top:0;left:0;opacity:0;transition:opacity 1s ease}
-    .big-claim-phrase.active{opacity:1}
-    .re-block{margin-top:56px;border-top:1px solid rgba(255,255,255,0.08);padding-top:48px}
-    .re-eyebrow{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--amber);margin-bottom:20px}
-    .re-headline{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;text-transform:uppercase;line-height:1.1;margin-bottom:16px}
-    .re-headline span{color:var(--red)}
-    .re-desc{font-size:0.9rem;color:rgba(245,242,237,0.55);line-height:1.7;max-width:520px;margin-bottom:28px}
-    .re-verticals{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-    .re-tag{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:5px 14px;font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-light)}
-    .re-markets{display:flex;flex-wrap:wrap;gap:6px}
-    .re-market{font-size:0.75rem;color:rgba(245,242,237,0.35);letter-spacing:0.04em}
-    .re-market::after{content:'·';margin-left:6px;color:rgba(255,255,255,0.15)}
-    .re-market:last-child::after{display:none}
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);margin-top:48px}
     .pricing-card{background:var(--black);padding:40px 32px;position:relative;display:flex;flex-direction:column}
     .pricing-card.featured{background:var(--gray);border:1px solid var(--red)}
@@ -266,29 +251,18 @@
     .pricing-cta:hover{background:var(--red-dark)}
     .pricing-cta.outline{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(245,242,237,0.7)}
     .pricing-cta.outline:hover{background:rgba(255,255,255,0.06);color:var(--white)}
-    .ps-engine{border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
-    .ps-intro{margin-bottom:64px}
-    .ps-heading{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;text-transform:uppercase;line-height:1.05}
-    .ps-heading span{color:var(--red)}
-    .ps-sub{margin-top:24px;font-size:1rem;font-weight:300;color:rgba(245,242,237,0.6);line-height:1.7;max-width:600px;margin-bottom:28px}
-    .ps-services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06)}
-    .ps-service{background:var(--black);padding:44px 36px;transition:background 0.2s}
-    .ps-service:hover{background:var(--gray)}
-    .ps-service-num{font-family:var(--font-display);font-size:3rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:12px}
-    .ps-service-name{font-family:var(--font-display);font-size:1.6rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px}
-    .ps-service-name span{color:var(--red);text-transform:lowercase}
-    .ps-service-tag{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:16px}
-    .ps-service-desc{font-size:0.88rem;color:rgba(245,242,237,0.5);line-height:1.7}
     .faq{background:var(--gray);border-top:1px solid rgba(255,255,255,0.06)}
     .faq-list{max-width:720px;margin-top:0}
-    .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);padding:28px 0}
-    .faq-q{font-family:var(--font-display);font-size:1.1rem;font-weight:600;letter-spacing:0.02em;text-transform:uppercase;margin-bottom:10px;color:var(--white)}
-    .faq-a{font-size:0.9rem;color:rgba(245,242,237,0.55);line-height:1.7}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.08);padding:0}
+    .faq-item summary{font-family:var(--font-display);font-size:1.1rem;font-weight:600;letter-spacing:0.02em;text-transform:uppercase;color:var(--white);cursor:pointer;padding:28px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:'+';font-size:1.4rem;font-weight:300;color:var(--red);transition:transform 0.2s}
+    .faq-item[open] summary::after{content:'-'}
+    .faq-a{font-size:0.9rem;color:rgba(245,242,237,0.55);line-height:1.7;padding:0 0 28px}
     .support-section{background:var(--gray);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
     .support-inner{max-width:900px}
     .support-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);margin-top:48px}
-    .support-card{background:var(--gray);padding:36px 28px}
-    .support-card:hover{background:rgba(255,255,255,0.03)}
+    .support-card{background:var(--gray);padding:36px 28px;cursor:default}
     .support-icon{font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--red);margin-bottom:12px}
     .support-title{font-family:var(--font-display);font-size:1rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:10px}
     .support-desc{font-size:0.85rem;color:rgba(245,242,237,0.55);line-height:1.7}
@@ -320,8 +294,13 @@
     .cookie-btns button{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;padding:10px 20px;border:none;cursor:pointer;transition:background 0.2s}
     .cookie-btns button:first-child{background:var(--red);color:var(--white)}.cookie-btns button:first-child:hover{background:var(--red-dark)}
     .cookie-decline{background:transparent;border:1px solid rgba(255,255,255,0.2)!important;color:rgba(245,242,237,0.5)}.cookie-decline:hover{background:rgba(255,255,255,0.06)!important;color:var(--white)}
+    .scroll-hint{display:none}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    @media(max-width:640px){nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}#cookieBanner{flex-direction:column;padding:16px 20px;text-align:center}.cookie-btns{justify-content:center}}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+    @media(max-width:640px){
+      .scroll-hint{display:block;text-align:center;padding:16px 0 0;opacity:0;animation:fadeUp 0.7s ease forwards 0.8s}
+      .scroll-hint span{display:inline-block;font-size:1.4rem;color:rgba(245,242,237,0.35);animation:bounce 1.8s ease-in-out infinite}
+      nav{padding:16px 20px}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}#cookieBanner{flex-direction:column;padding:16px 20px;text-align:center}.cookie-btns{justify-content:center}}
   </style>
 </head>
 <body>
@@ -347,12 +326,13 @@
       <a href="https://panel.tpvya.com/login" class="btn-primary">Crear cuenta gratis</a>
       <button class="btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Ver precios →</button>
     </div>
+    <div class="scroll-hint" aria-hidden="true"><span>&#8964;</span></div>
     <div class="hero-number">5'</div>
   </section>
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-inner">
-      <span class="ticker-item">TPV gratis para bares</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">TPV barato España</span><span class="ticker-item">Soporte incluido</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Plug and Sales</span><span class="ticker-item">Waiters.club</span><span class="ticker-item">Informes en tiempo real</span><span class="ticker-item">TPV gratis para bares</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">TPV barato España</span><span class="ticker-item">Soporte incluido</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Plug and Sales</span><span class="ticker-item">Waiters.club</span><span class="ticker-item">Informes en tiempo real</span>
+      <span class="ticker-item">TPV gratis para bares</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">TPV barato España</span><span class="ticker-item">Soporte incluido</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Carta digital</span><span class="ticker-item">Informes en tiempo real</span><span class="ticker-item">TPV gratis para bares</span><span class="ticker-item">Alta en 5 minutos</span><span class="ticker-item">TPV barato España</span><span class="ticker-item">Soporte incluido</span><span class="ticker-item">Gestión de mesas</span><span class="ticker-item">Carta digital</span><span class="ticker-item">Informes en tiempo real</span>
     </div>
   </div>
 
@@ -367,10 +347,7 @@
   </section>
 
   <div class="big-claim">
-    <div class="big-claim-rotator">
-      <h2 class="big-claim-phrase active">La hostelería no debería<br>necesitar un informático<br>para <span>cobrar una cerveza.</span></h2>
-      <h2 class="big-claim-phrase">The revenue engine<br>for brands that reach consumers<br>through <span>hospitality.</span></h2>
-    </div>
+    <h2>La hostelería no debería<br>necesitar un informático<br>para <span>cobrar una cerveza.</span></h2>
   </div>
 
   <!-- SOPORTE TÉCNICO -->
@@ -411,55 +388,6 @@
   <div class="big-claim">
     <h2 style="font-size:clamp(1.4rem,3.5vw,2.5rem);max-width:700px">Construido por gente de hostelería, para gente de hostelería. Sabemos lo que necesitas porque <span>lo vemos cada día.</span></h2>
   </div>
-
-  <section class="ps-engine" id="plug-and-sales">
-    <p class="section-label">Plug and Sales · Revenue Engine</p>
-    <div class="ps-intro">
-      <h2 class="ps-heading">El motor de ingresos para<br>empresas que quieren llegar<br>al <span>consumidor final</span><br>a través de la hostelería.</h2>
-      <p class="ps-sub">Plug and Sales conecta marcas de Foodtech, Fintech, SaaS y Lifestyle con los locales, los equipos y los clientes de hostelería. Un canal de distribución, activación y venta que no existía.</p>
-      <div class="re-verticals">
-        <span class="re-tag">Foodtech</span>
-        <span class="re-tag">Fintech</span>
-        <span class="re-tag">SaaS</span>
-        <span class="re-tag">Lifestyle</span>
-      </div>
-      <div class="re-markets">
-        <span class="re-market">Spain</span>
-        <span class="re-market">France</span>
-        <span class="re-market">Italy</span>
-        <span class="re-market">USA</span>
-        <span class="re-market">Mexico</span>
-        <span class="re-market">Argentina</span>
-        <span class="re-market">Brazil</span>
-      </div>
-    </div>
-    <div class="ps-services-grid">
-      <div class="ps-service">
-        <div class="ps-service-num">01</div>
-        <div class="ps-service-name">B2T</div>
-        <p class="ps-service-tag">Business to Team</p>
-        <p class="ps-service-desc">Llega directo al camarero. Las marcas motivan, forman y recompensan al equipo de sala para que recomiende, active y venda su producto al consumidor final.</p>
-      </div>
-      <a href="https://waiters.club/?utm_source=tpvya&utm_medium=referral&utm_campaign=ps_section" class="ps-service" style="text-decoration:none;color:inherit">
-        <div class="ps-service-num">02</div>
-        <div class="ps-service-name">WAITERS<span>.club</span></div>
-        <p class="ps-service-tag">La comunidad</p>
-        <p class="ps-service-desc">Red de profesionales de sala. Perfil, formación, retos entre equipos y rewards de marcas. El canal donde la hostelería recompensa a quien la hace funcionar.</p>
-      </a>
-      <div class="ps-service">
-        <div class="ps-service-num">03</div>
-        <div class="ps-service-name">Loyalty</div>
-        <p class="ps-service-tag">Fidelización en punto de venta</p>
-        <p class="ps-service-desc">Programas de fidelización embebidos en el TPV. Las marcas lanzan campañas de loyalty directo en el momento del consumo, sin apps extra para el cliente final.</p>
-      </div>
-      <div class="ps-service">
-        <div class="ps-service-num">04</div>
-        <div class="ps-service-name">Payments</div>
-        <p class="ps-service-tag">Wallet y pagos integrados</p>
-        <p class="ps-service-desc">Fintechs y wallets se integran en el flujo de cobro del local. El consumidor paga como quiere, la marca captura el dato, el hostelero cobra al instante.</p>
-      </div>
-    </div>
-  </section>
 
   <section id="pricing">
     <p class="section-label">Precios del TPV</p>
@@ -515,13 +443,13 @@
   <section class="faq">
     <p class="section-label">Preguntas frecuentes sobre el TPV</p>
     <div class="faq-list">
-      <div class="faq-item"><p class="faq-q">¿Es gratis el TPV para mi bar?</p><p class="faq-a">Sí. El plan Gratis de TPV Ya incluye 1 terminal TPV, carta digital, gestión de mesas y cierre de caja diario, sin coste y para siempre.</p></div>
-      <div class="faq-item"><p class="faq-q">¿Cuánto tiempo tarda instalar el TPV?</p><p class="faq-a">El alta del TPV es en menos de 5 minutos desde cualquier tablet o móvil. No requiere instalación de hardware ni técnico especializado.</p></div>
-      <div class="faq-item"><p class="faq-q">¿Cómo funciona el pago?</p><p class="faq-a">El plan Gratis es gratis para siempre. Los planes de pago se contratan por 12 meses. Puedes pagar mes a mes (29€/mes en Starter) o adelantar el año completo con descuento: 300€/año en Starter, que sale a 25€/mes.</p></div>
-      <div class="faq-item"><p class="faq-q">¿En qué dispositivos funciona el TPV?</p><p class="faq-a">El TPV funciona en cualquier tablet, móvil o pantalla con navegador web. Compatible con iPad, Android y cualquier PC. El hardware que ya tienes es suficiente.</p></div>
-      <div class="faq-item"><p class="faq-q">¿Es el TPV más barato de España?</p><p class="faq-a">El plan gratuito no tiene coste mensual. El plan Starter cuesta 29€/mes (o 25€/mes en pago anual) para hasta 3 terminales. Es uno de los TPV más baratos del mercado español para hostelería.</p></div>
-      <div class="faq-item"><p class="faq-q">¿Qué incluye el Soporte Técnico a 49,90€/mes?</p><p class="faq-a">Cobertura técnica completa para tu negocio: TPV, impresoras, WiFi, tablets. Asistente inteligente 24/7 que resuelve la mayoría de incidencias al instante. Lo que no se resuelve automáticamente, lo escalamos con respuesta en menos de 2 horas. Pago anual: 499€ (te ahorras 2 meses).</p></div>
-      <div class="faq-item"><p class="faq-q">¿Puedo contratar el soporte con el plan Gratis?</p><p class="faq-a">Sí. El soporte técnico es compatible con cualquier plan, incluido el Gratis. Piénsalo así: por el precio de un café al día, tu local tiene informático propio.</p></div>
+      <details class="faq-item"><summary>¿Es gratis el TPV para mi bar?</summary><p class="faq-a">Sí. El plan Gratis de TPV Ya incluye 1 terminal TPV, carta digital, gestión de mesas y cierre de caja diario, sin coste y para siempre.</p></details>
+      <details class="faq-item"><summary>¿Cuánto tiempo tarda instalar el TPV?</summary><p class="faq-a">El alta del TPV es en menos de 5 minutos desde cualquier tablet o móvil. No requiere instalación de hardware ni técnico especializado.</p></details>
+      <details class="faq-item"><summary>¿Cómo funciona el pago?</summary><p class="faq-a">El plan Gratis es gratis para siempre. Los planes de pago se contratan por 12 meses. Puedes pagar mes a mes (29€/mes en Starter) o adelantar el año completo con descuento: 300€/año en Starter, que sale a 25€/mes.</p></details>
+      <details class="faq-item"><summary>¿En qué dispositivos funciona el TPV?</summary><p class="faq-a">El TPV funciona en cualquier tablet, móvil o pantalla con navegador web. Compatible con iPad, Android y cualquier PC. El hardware que ya tienes es suficiente.</p></details>
+      <details class="faq-item"><summary>¿Es el TPV más barato de España?</summary><p class="faq-a">El plan gratuito no tiene coste mensual. El plan Starter cuesta 29€/mes (o 25€/mes en pago anual) para hasta 3 terminales. Es uno de los TPV más baratos del mercado español para hostelería.</p></details>
+      <details class="faq-item"><summary>¿Qué incluye el Soporte Técnico a 49,90€/mes?</summary><p class="faq-a">Cobertura técnica completa para tu negocio: TPV, impresoras, WiFi, tablets. Asistente inteligente 24/7 que resuelve la mayoría de incidencias al instante. Lo que no se resuelve automáticamente, lo escalamos con respuesta en menos de 2 horas. Pago anual: 499€ (te ahorras 2 meses).</p></details>
+      <details class="faq-item"><summary>¿Puedo contratar el soporte con el plan Gratis?</summary><p class="faq-a">Sí. El soporte técnico es compatible con cualquier plan, incluido el Gratis. Piénsalo así: por el precio de un café al día, tu local tiene informático propio.</p></details>
     </div>
   </section>
 
@@ -546,7 +474,7 @@
   </main>
 
   <footer>
-    <div class="footer-logo">TPV<span>YA</span></div>
+    <a href="/" class="footer-logo" style="text-decoration:none">TPV<span>YA</span></a>
     <p>TPV gratis y barato para hostelería en España — tpvya.com</p>
     <p style="margin-top:8px"><a href="/privacidad" style="color:var(--gray-light);text-decoration:none;font-size:0.85rem">Privacidad y Cookies</a></p>
     <p>© 2026 TPV Ya. Todos los derechos reservados.</p>
@@ -625,17 +553,6 @@
       }
     }
 
-    // --- Big claim rotator ---
-    (function(){
-      var phrases=document.querySelectorAll('.big-claim-phrase');
-      if(phrases.length<2) return;
-      var idx=0;
-      setInterval(function(){
-        phrases[idx].classList.remove('active');
-        idx=(idx+1)%phrases.length;
-        phrases[idx].classList.add('active');
-      },5000);
-    })();
 
     // --- Clarity + HubSpot chatflow integration ---
     (function(){
@@ -683,7 +600,7 @@
     var obs=new IntersectionObserver(function(entries){entries.forEach(function(el){
       if(el.isIntersecting){el.target.style.opacity='1';el.target.style.transform='translateY(0)';}
     });},{threshold:0.1});
-    document.querySelectorAll('.feature-card,.pricing-card,.faq-item,.support-card,.support-price-box,.ps-service').forEach(function(el){
+    document.querySelectorAll('.feature-card,.pricing-card,.support-card,.support-price-box').forEach(function(el){
       el.style.opacity='0';el.style.transform='translateY(20px)';
       el.style.transition='opacity 0.5s ease,transform 0.5s ease';
       obs.observe(el);
