@@ -615,5 +615,98 @@
       obs.observe(el);
     });
   </script>
+  <!-- Outreach visit tracking: lee ?t= de los emails de campana y atribuye la visita al contacto en HubSpot via Edge Function website-visit-tracker -->
+  <script>
+  (function(){
+    var VISIT_TRACKER_URL='https://opywuoiwozovlnljdrxu.supabase.co/functions/v1/website-visit-tracker';
+    var TRACKING_KEY='tpv_tracking_id';
+    var SESSION_KEY='tpv_session_id';
+    var SESSION_START_KEY='tpv_session_start';
+    var PAGE_COUNT_KEY='tpv_page_count';
+    var CLARITY_ID_KEY='tpv_clarity_identified';
+    var CLARITY_TAGS_KEY='tpv_clarity_tags_set';
+
+    // Solo en produccion (evita previews de Vercel y localhost)
+    var host=window.location.hostname;
+    if(host!=='tpvya.com' && host!=='www.tpvya.com') return;
+
+    // Capturar ?t=<8 hex> y limpiar la URL sin recargar
+    var params=new URLSearchParams(window.location.search);
+    var fromUrl=params.get('t');
+    if(fromUrl && /^[a-f0-9]{8}$/.test(fromUrl)){
+      localStorage.setItem(TRACKING_KEY,fromUrl);
+      params.delete('t');
+      var s=params.toString();
+      var clean=window.location.pathname+(s?'?'+s:'')+window.location.hash;
+      window.history.replaceState({},'',clean);
+    }
+
+    var trackingId=localStorage.getItem(TRACKING_KEY);
+    if(!trackingId) return; // sin tracking_id no hay nada que atribuir
+
+    // Sesion
+    if(!sessionStorage.getItem(SESSION_KEY)){
+      sessionStorage.setItem(SESSION_KEY, (crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random()));
+    }
+    if(!sessionStorage.getItem(SESSION_START_KEY)){
+      sessionStorage.setItem(SESSION_START_KEY,String(Date.now()));
+    }
+    var sessionId=sessionStorage.getItem(SESSION_KEY);
+    var pageCount=parseInt(sessionStorage.getItem(PAGE_COUNT_KEY)||'0')+1;
+    sessionStorage.setItem(PAGE_COUNT_KEY,String(pageCount));
+    var start=parseInt(sessionStorage.getItem(SESSION_START_KEY)||'0');
+    var duration=start?Math.round((Date.now()-start)/1000):0;
+
+    var needsId=!localStorage.getItem(CLARITY_ID_KEY);
+    var needsTags=!sessionStorage.getItem(CLARITY_TAGS_KEY);
+
+    fetch(VISIT_TRACKER_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      keepalive:true,
+      body:JSON.stringify({
+        tracking_id:trackingId,
+        page_url:window.location.pathname,
+        page_title:document.title,
+        referrer:document.referrer||null,
+        session_id:sessionId,
+        session_duration_seconds:duration,
+        screen_resolution:window.screen.width+'x'+window.screen.height,
+        pages_in_session:pageCount
+      })
+    }).then(function(res){return res.ok?res.json():null;}).then(function(data){
+      if(!data||!data.clarity_id||typeof window.clarity!=='function') return;
+      if(needsId){
+        window.clarity('identify',data.clarity_id,null,null,data.clarity_name||undefined);
+        localStorage.setItem(CLARITY_ID_KEY,'true');
+      }
+      if(needsTags && data.clarity_tags){
+        Object.keys(data.clarity_tags).forEach(function(k){
+          if(data.clarity_tags[k]) window.clarity('set',k,data.clarity_tags[k]);
+        });
+        sessionStorage.setItem(CLARITY_TAGS_KEY,'true');
+      }
+    }).catch(function(){/* fallo silencioso: nunca bloquear UX */});
+
+    // Ping final de duracion al cerrar/ocultar la pestana
+    document.addEventListener('visibilitychange',function(){
+      if(document.visibilityState!=='hidden') return;
+      var st=parseInt(sessionStorage.getItem(SESSION_START_KEY)||'0');
+      if(!st) return;
+      var d=Math.round((Date.now()-st)/1000);
+      if(d<1||d>3600) return;
+      if(!navigator.sendBeacon) return;
+      var payload=JSON.stringify({
+        tracking_id:trackingId,
+        page_url:window.location.pathname,
+        session_id:sessionId,
+        session_duration_seconds:d,
+        type:'duration_ping',
+        pages_in_session:parseInt(sessionStorage.getItem(PAGE_COUNT_KEY)||'1')
+      });
+      navigator.sendBeacon(VISIT_TRACKER_URL, new Blob([payload],{type:'application/json'}));
+    });
+  })();
+  </script>
 </body>
 </html>
