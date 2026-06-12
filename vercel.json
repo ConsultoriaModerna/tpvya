@@ -3,9 +3,9 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.tpvya.com" }],
-      "destination": "https://tpvya.com/:path*",
+      "destination": "https://tpvya.com/$1",
       "permanent": true
     }
   ],
