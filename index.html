@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO Primary -->
-  <title>TPV Gratis para Bares y Restaurantes | TPV Barato en España — TPV Ya</title>
+  <title>TPV Gratis para Bares y Restaurantes en España | TPV Ya</title>
   <meta name="description" content="TPV gratis y barato para hostelería en España. Alta en 5 minutos, sin instalaciones. El software TPV más rápido de España para bares, cafés y restaurantes. Prueba gratis." />
   <meta name="keywords" content="TPV, TPV gratis, TPV barato, TPV España, TPV bar, TPV restaurante, TPV hostelería, software TPV, TPV nube, TPV tablet, punto de venta, caja registradora, TPV online, TPV rápido" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="TPV Ya" />
   <link rel="canonical" href="https://tpvya.com/" />
 
-  <!-- Favicon (inline SVG) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230a0a0a'/><text x='50' y='72' font-family='system-ui' font-size='52' font-weight='900' fill='%23f5f2ed' text-anchor='middle'>T<tspan fill='%23e8321a'>Y</tspan></text></svg>" type="image/svg+xml" />
+  <!-- Favicon (fichero real, rastreable por Google) -->
+  <link rel="icon" href="/icon-192.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#0a0a0a" />
 
   <!-- Señales geográficas España -->
@@ -155,7 +155,7 @@
 
     function showBanner(){
       var b=document.createElement('div');b.id='cookieBanner';
-      b.innerHTML='<p>Usamos cookies para analítica y para el chat de soporte. Sin ellas el sitio funciona igual. <a href="/privacidad" style="color:inherit;text-decoration:underline">Más info</a></p>'+
+      b.innerHTML='<p>Usamos cookies de analítica y chat de soporte. <a href="/privacidad" style="color:inherit;text-decoration:underline">Más info</a></p>'+
         '<div class="cookie-btns">'+
         '<button onclick="window._tpvC.accept()">Aceptar</button>'+
         '<button onclick="window._tpvC.decline()" class="cookie-decline">Solo necesarias</button>'+
@@ -190,14 +190,19 @@
     .nav-links a.nav-link:hover{color:var(--white)}
     nav a.cta-nav{background:var(--red);color:var(--white);font-family:var(--font-display);font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;padding:10px 22px;transition:background 0.2s}
     nav a.cta-nav:hover{background:var(--red-dark)}
+    .nav-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--white);font-size:1.1rem;line-height:1;padding:8px 12px;cursor:pointer}
+    .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.1);flex-direction:column;padding:8px 20px 16px}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:var(--font-display);font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,242,237,0.8);text-decoration:none;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .mobile-menu a:last-child{border-bottom:none}
     .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 40px 80px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(232,50,26,0.12) 0%,transparent 65%);pointer-events:none}
     .hero-eyebrow{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px;opacity:0;animation:fadeUp 0.6s ease forwards 0.1s}
-    .hero h1{font-family:var(--font-display);font-size:clamp(3.5rem,9vw,8rem);font-weight:700;line-height:0.95;letter-spacing:-0.01em;text-transform:uppercase;max-width:900px;opacity:0;animation:fadeUp 0.7s ease forwards 0.2s}
+    .hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,9vw,8rem);font-weight:700;line-height:0.95;letter-spacing:-0.01em;text-transform:uppercase;max-width:900px;opacity:0;animation:fadeUp 0.7s ease forwards 0.2s}
     .hero h1 em{font-style:normal;color:var(--red)}
     .hero-sub{margin-top:32px;font-size:1.15rem;font-weight:300;color:rgba(245,242,237,0.7);max-width:520px;line-height:1.7;opacity:0;animation:fadeUp 0.7s ease forwards 0.35s}
     .hero-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;opacity:0;animation:fadeUp 0.7s ease forwards 0.45s}
-    .pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:6px 14px;font-size:0.8rem;letter-spacing:0.05em;color:var(--gray-light)}
+    .pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:6px 14px;font-size:0.8rem;letter-spacing:0.05em;color:var(--gray-light);cursor:default}
     .pill strong{color:var(--white)}
     .hero-cta{display:flex;align-items:center;gap:20px;margin-top:48px;opacity:0;animation:fadeUp 0.7s ease forwards 0.55s}
     .btn-primary{background:var(--red);color:var(--white);font-family:var(--font-display);font-size:1rem;letter-spacing:0.08em;text-transform:uppercase;border:none;padding:18px 40px;cursor:pointer;transition:background 0.2s,transform 0.15s;text-decoration:none;display:inline-block}
@@ -223,7 +228,7 @@
     .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);margin-top:48px}
     .pricing-card{background:var(--black);padding:40px 32px;position:relative;display:flex;flex-direction:column}
     .pricing-card.featured{background:var(--gray);border:1px solid var(--red)}
-    .pricing-card .badge{position:absolute;top:-1px;right:24px;background:var(--red);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px}
+    .pricing-card .badge{position:absolute;top:-1px;right:24px;background:var(--red);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;cursor:default}
     .pricing-plan{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-light);margin-bottom:16px}
     /* Wrap shrinks to fit just the price digits */
     .pricing-price-wrap{position:relative;display:inline-block;align-self:flex-start}
@@ -247,6 +252,7 @@
       transform:rotate(-12deg);
       transform-origin:left top;
       box-shadow:2px 2px 0 rgba(0,0,0,0.35);
+      cursor:default;
     }
     .pricing-for{font-size:0.85rem;color:rgba(245,242,237,0.5);margin-top:8px;margin-bottom:28px}
     .pricing-features{list-style:none;font-size:0.85rem;color:rgba(245,242,237,0.65);line-height:2;flex:1}
@@ -292,10 +298,10 @@
     .footer-logo span{color:var(--red)}
     footer p{font-size:0.75rem;color:rgba(245,242,237,0.25)}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    #cookieBanner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--gray);border-top:1px solid rgba(255,255,255,0.1);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:0.85rem;color:rgba(245,242,237,0.7);animation:fadeUp 0.4s ease}
-    #cookieBanner p{flex:1;margin:0;line-height:1.5}
+    #cookieBanner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--gray);border-top:1px solid rgba(255,255,255,0.1);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:0.8rem;color:rgba(245,242,237,0.7);animation:fadeUp 0.4s ease}
+    #cookieBanner p{flex:1;margin:0;line-height:1.4}
     .cookie-btns{display:flex;gap:8px;flex-shrink:0}
-    .cookie-btns button{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;padding:10px 20px;border:none;cursor:pointer;transition:background 0.2s}
+    .cookie-btns button{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;padding:8px 14px;border:none;cursor:pointer;transition:background 0.2s}
     .cookie-btns button:first-child{background:var(--red);color:var(--white)}.cookie-btns button:first-child:hover{background:var(--red-dark)}
     .cookie-decline{background:transparent;border:1px solid rgba(255,255,255,0.2)!important;color:rgba(245,242,237,0.5)}.cookie-decline:hover{background:rgba(255,255,255,0.06)!important;color:var(--white)}
     .scroll-hint{display:none}
@@ -304,7 +310,7 @@
     @media(max-width:640px){
       .scroll-hint{display:block;text-align:center;padding:16px 0 0;opacity:0;animation:fadeUp 0.7s ease forwards 0.8s}
       .scroll-hint span{display:inline-block;font-size:1.4rem;color:rgba(245,242,237,0.35);animation:bounce 1.8s ease-in-out infinite}
-      nav{padding:16px 20px}.nav-links a.nav-link{display:none}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}#cookieBanner{flex-direction:column;padding:16px 20px;text-align:center}.cookie-btns{justify-content:center}}
+      nav{padding:16px 20px}.nav-links a.nav-link{display:none}.nav-links{gap:12px}.nav-toggle{display:block}.hero{padding:120px 20px 60px}section{padding:60px 20px}.big-claim{padding:60px 20px}.faq{padding:60px 20px}footer{padding:32px 20px;flex-direction:column;align-items:flex-start}.form-row{flex-direction:column}.form-row input[type=email]{border-right:1px solid rgba(255,255,255,0.12);border-bottom:none}.hero-number{display:none}#cookieBanner{padding:8px 12px;gap:10px;font-size:0.72rem}.cookie-btns button{padding:7px 10px;font-size:0.65rem}}
   </style>
 </head>
 <body>
@@ -316,7 +322,15 @@
       <a href="#pricing" class="nav-link">Precios</a>
       <a href="#soporte" class="nav-link">Soporte</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="https://panel.tpvya.com/login" class="cta-nav">Mi TPV Ya</a>
+      <a href="/guia" class="nav-link">Guía</a>
+      <a href="https://panel.tpvya.com/login?mode=login" class="cta-nav">Mi TPV Ya</a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#pricing">Precios</a>
+      <a href="#soporte">Soporte</a>
+      <a href="#faq">FAQ</a>
+      <a href="/guia">Guía de inicio</a>
     </div>
   </nav>
 
@@ -332,7 +346,7 @@
       <div class="pill">100% en la <strong>nube</strong></div>
     </div>
     <div class="hero-cta">
-      <a href="https://panel.tpvya.com/login" class="btn-primary">Crear cuenta gratis</a>
+      <a href="https://panel.tpvya.com/login?intent=signup" class="btn-primary">Crear cuenta gratis</a>
       <button class="btn-ghost" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Ver precios →</button>
     </div>
     <div class="scroll-hint" aria-hidden="true"><span>&#8964;</span></div>
@@ -346,12 +360,12 @@
   </div>
 
   <section>
-    <p class="section-label">Por qué TPV Ya</p>
+    <h2 class="section-label">Por qué TPV Ya</h2>
     <div class="features-grid">
-      <div class="feature-card"><div class="feature-num">01</div><div class="feature-title">5 minutos. Eso es todo.</div><p class="feature-desc">Abre la web, crea tu cuenta, y ya tienes TPV. Funciona en la tablet que ya tienes. Tu carta lista hoy. Sin esperar al técnico, sin esperar a nadie.</p></div>
-      <div class="feature-card"><div class="feature-num">02</div><div class="feature-title">Gratis. De verdad.</div><p class="feature-desc">1 terminal, para siempre, por 0 euros. Cuando crezcas, escalas. Desde 25€/mes en pago anual. El TPV más barato del mercado.</p></div>
-      <div class="feature-card"><div class="feature-num">03</div><div class="feature-title">Hecho para hosteleros.</div><p class="feature-desc">Diseñado para el hostelero, no para el informático. Cobro en dos toques. Soporte en español. Respuesta en menos de 2 horas. Porque sabemos lo que necesitas: lo vemos cada día.</p></div>
-      <div class="feature-card"><div class="feature-num">04</div><div class="feature-title">Tu negocio en el bolsillo.</div><p class="feature-desc">Ventas en tiempo real desde el móvil. Tickets y facturas con cumplimiento fiscal desde el día uno. Cierre de caja, analytics, todo en la nube.</p></div>
+      <div class="feature-card"><div class="feature-num">01</div><h3 class="feature-title">5 minutos. Eso es todo.</h3><p class="feature-desc">Abre la web, crea tu cuenta, y ya tienes TPV. Funciona en la tablet que ya tienes. Tu carta lista hoy. Sin esperar al técnico, sin esperar a nadie.</p></div>
+      <div class="feature-card"><div class="feature-num">02</div><h3 class="feature-title">Gratis. De verdad.</h3><p class="feature-desc">1 terminal, para siempre, por 0 euros. Cuando crezcas, escalas. Desde 25€/mes en pago anual. El TPV más barato del mercado.</p></div>
+      <div class="feature-card"><div class="feature-num">03</div><h3 class="feature-title">Hecho para hosteleros.</h3><p class="feature-desc">Diseñado para el hostelero, no para el informático. Cobro en dos toques. Soporte en español. Respuesta en menos de 2 horas. Porque sabemos lo que necesitas: lo vemos cada día.</p></div>
+      <div class="feature-card"><div class="feature-num">04</div><h3 class="feature-title">Tu negocio en el bolsillo.</h3><p class="feature-desc">Ventas en tiempo real desde el móvil. Tickets y facturas con cumplimiento fiscal desde el día uno. Cierre de caja, analytics, todo en la nube.</p></div>
     </div>
   </section>
 
@@ -368,17 +382,17 @@
       <div class="support-features">
         <div class="support-card">
           <div class="support-icon">24/7</div>
-          <p class="support-title">Soporte inmediato</p>
+          <h3 class="support-title">Soporte inmediato</h3>
           <p class="support-desc">Respuesta en menos de 2 horas. Chat, email o teléfono. Porque un bar no cierra cuando se cuelga el ordenador.</p>
         </div>
         <div class="support-card">
           <div class="support-icon">IA</div>
-          <p class="support-title">Asistente inteligente</p>
+          <h3 class="support-title">Asistente inteligente</h3>
           <p class="support-desc">La mayoría de incidencias se resuelven al instante con nuestro asistente. Lo que no, lo escalamos nosotros.</p>
         </div>
         <div class="support-card">
           <div class="support-icon">0</div>
-          <p class="support-title">Cero preocupaciones</p>
+          <h3 class="support-title">Cero preocupaciones</h3>
           <p class="support-desc">Actualizaciones automáticas, backups en la nube, monitorización continua. Tú atiende a tus clientes, nosotros al resto.</p>
         </div>
       </div>
@@ -388,7 +402,7 @@
           <div style="margin-top:12px"><span style="font-family:var(--font-display);font-size:3.5rem;font-weight:700;color:var(--white)"><sup style="font-size:1.2rem">€</sup>49<sup style="font-size:1.2rem">,90</sup></span><span style="font-size:1rem;color:var(--gray-light)"> /mes</span></div>
           <p style="font-size:0.85rem;color:rgba(245,242,237,0.5);margin-top:8px">Compatible con cualquier plan, incluido el Gratis.</p>
           <p style="font-size:0.75rem;color:rgba(245,242,237,0.3);margin-top:6px">Pago anual: 499 €/año (ahorra 2 meses).</p>
-          <a href="https://panel.tpvya.com/login" class="pricing-cta" style="margin-top:24px;display:inline-block">Activar soporte</a>
+          <a href="https://panel.tpvya.com/login?intent=signup" class="pricing-cta" style="margin-top:24px;display:inline-block">Activar soporte</a>
         </div>
       </div>
     </div>
@@ -416,7 +430,7 @@
           <li>Mesas + reservas</li>
           <li>Equipo (hasta 2)</li>
         </ul>
-        <a href="https://panel.tpvya.com/login" class="pricing-cta">Crear cuenta gratuita</a>
+        <a href="https://panel.tpvya.com/login?intent=signup&plan=free" class="pricing-cta">Crear cuenta gratuita</a>
       </div>
       <div class="pricing-card featured">
         <span class="badge">Más popular</span>
@@ -431,11 +445,11 @@
           <li>Analytics avanzados</li>
           <li>Equipo (hasta 25)</li>
         </ul>
-        <a href="https://panel.tpvya.com/login" class="pricing-cta">Iniciar prueba 14 días gratis</a>
+        <a href="https://panel.tpvya.com/login?intent=signup&plan=starter" class="pricing-cta">Iniciar prueba 14 días gratis</a>
       </div>
       <div class="pricing-card">
         <p class="pricing-plan">Pro</p>
-        <div class="pricing-price"><sup>€</sup>49<sub> /mes</sub></div>
+        <div class="pricing-price"><sup>€</sup>59<sub> /mes</sub></div>
         <p class="pricing-for">Cadena pequeña o multilocal.</p>
         <ul class="pricing-features">
           <li>Todo del plan Starter</li>
@@ -444,13 +458,13 @@
           <li>API abierta</li>
           <li>Soporte prioritario</li>
         </ul>
-        <a href="https://panel.tpvya.com/login" class="pricing-cta outline">Iniciar prueba 14 días gratis</a>
+        <a href="https://panel.tpvya.com/login?intent=signup&plan=pro" class="pricing-cta outline">Iniciar prueba 14 días gratis</a>
       </div>
     </div>
   </section>
 
   <section class="faq" id="faq">
-    <p class="section-label">Preguntas frecuentes sobre el TPV</p>
+    <h2 class="section-label">Preguntas frecuentes sobre el TPV</h2>
     <div class="faq-list">
       <details class="faq-item"><summary>¿Es gratis el TPV para mi bar?</summary><p class="faq-a">Sí. El plan Gratis de TPV Ya incluye 1 terminal TPV, carta digital, gestión de mesas y cierre de caja diario, sin coste y para siempre.</p></details>
       <details class="faq-item"><summary>¿Cuánto tiempo tarda instalar el TPV?</summary><p class="faq-a">El alta del TPV es en menos de 5 minutos desde cualquier tablet o móvil. No requiere instalación de hardware ni técnico especializado.</p></details>
@@ -485,7 +499,7 @@
   <footer>
     <a href="/" class="footer-logo" style="text-decoration:none">TPV<span>YA</span></a>
     <p>TPV gratis y barato para hostelería en España — tpvya.com</p>
-    <p style="margin-top:8px"><a href="/privacidad" style="color:var(--gray-light);text-decoration:none;font-size:0.85rem">Privacidad y Cookies</a></p>
+    <p style="margin-top:8px"><a href="/guia" style="color:var(--gray-light);text-decoration:none;font-size:0.85rem">Guía de inicio</a> &middot; <a href="/privacidad" style="color:var(--gray-light);text-decoration:none;font-size:0.85rem">Privacidad y Cookies</a></p>
     <p>© 2026 TPV Ya. Todos los derechos reservados.</p>
   </footer>
 
@@ -519,47 +533,36 @@
       });
     });
 
-    // --- Waitlist + signup ---
-    async function callWaitlist(email,attempt){
-      var body=Object.assign({email:email},utmParams);
-      var res=await fetch('/api/waitlist',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(body)
-      });
-      if(!res.ok&&attempt<2){
-        await new Promise(function(r){setTimeout(r,1500);});
-        return callWaitlist(email,attempt+1);
-      }
-      return res;
-    }
-
-    async function handleSubmit(e){
+    // --- Signup: envío a HubSpot fire-and-forget, el redirect al panel NUNCA se bloquea ---
+    function handleSubmit(e){
       e.preventDefault();
       var email=document.getElementById('emailInput').value;
       var btn=document.getElementById('submitBtn');
-      var errorMsg=document.getElementById('errorMsg');
-      btn.disabled=true;btn.textContent='Enviando...';errorMsg.style.display='none';
+      btn.disabled=true;btn.textContent='Enviando...';
       try{
-        var res=await callWaitlist(email,1);
-        if(res.ok){
-          window._hsq.push(['identify',{email:email}]);
-          window._hsq.push(['trackPageView']);
-          if(window.clarity){window.clarity('identify',email);window.clarity('set','email',email);window.clarity('set','source','signup_form');}
-          var cid=(document.cookie.match(/_clck=([^|;]+)/)||[])[1]||'';
-          if(cid) window._hsq.push(['identify',{clarity_user_id:cid}]);
-          // Signup value: ~10% free→paid × €1200 LTV = €120
-          if(window.gtag){
-            gtag('event','generate_lead',{event_category:'conversion',method:'email_form',value:120.0,currency:'EUR'});
-            gtag('event','conversion',{send_to:'AW-17677182853/CKzOCJnihrQbEIXPke1B',value:120.0,currency:'EUR'});
-          }
-          if(window.fbq) fbq('track','Lead',{content_name:'signup_form',currency:'EUR',value:120.0});
-          var redirect='https://panel.tpvya.com/login?email='+encodeURIComponent(email);
-          window.location.href=Object.keys(utmParams).length?appendUtms(redirect):redirect;
-        }else{throw new Error('Error');}
-      }catch(err){
-        btn.disabled=false;btn.textContent='Crear cuenta';errorMsg.style.display='block';
-      }
+        var body=Object.assign({email:email},utmParams);
+        fetch('/api/waitlist',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify(body),
+          keepalive:true
+        }).catch(function(){/* fallo silencioso: no bloquear el registro */});
+      }catch(err){/* fallo silencioso */}
+      try{
+        window._hsq.push(['identify',{email:email}]);
+        window._hsq.push(['trackPageView']);
+        if(window.clarity){window.clarity('identify',email);window.clarity('set','email',email);window.clarity('set','source','signup_form');}
+        var cid=(document.cookie.match(/_clck=([^|;]+)/)||[])[1]||'';
+        if(cid) window._hsq.push(['identify',{clarity_user_id:cid}]);
+        // Signup value: ~10% free→paid × €1200 LTV = €120
+        if(window.gtag){
+          gtag('event','generate_lead',{event_category:'conversion',method:'email_form',value:120.0,currency:'EUR'});
+          gtag('event','conversion',{send_to:'AW-17677182853/CKzOCJnihrQbEIXPke1B',value:120.0,currency:'EUR'});
+        }
+        if(window.fbq) fbq('track','Lead',{content_name:'signup_form',currency:'EUR',value:120.0});
+      }catch(err){/* el tracking nunca debe romper el registro */}
+      var redirect='https://panel.tpvya.com/login?email='+encodeURIComponent(email)+'&intent=signup';
+      window.location.href=Object.keys(utmParams).length?appendUtms(redirect):redirect;
     }
 
 
@@ -602,6 +605,25 @@
           (e.data.data||[]).forEach(function(f){if(f.name==='email') email=f.value;});
           if(email) identifyClarity(email,'chatflow');
         }
+      });
+    })();
+
+    // --- Menú hamburguesa móvil ---
+    (function(){
+      var toggle=document.getElementById('navToggle');
+      var menu=document.getElementById('mobileMenu');
+      if(!toggle||!menu) return;
+      toggle.addEventListener('click',function(){
+        var open=menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded',open?'true':'false');
+        toggle.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click',function(){
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded','false');
+          toggle.setAttribute('aria-label','Abrir menú');
+        });
       });
     })();
 
