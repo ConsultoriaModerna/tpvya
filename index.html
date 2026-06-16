@@ -49,9 +49,9 @@
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
     "offers": [
-      {"@type": "Offer", "name": "Plan Gratis", "price": "0", "priceCurrency": "EUR"},
-      {"@type": "Offer", "name": "Plan Starter", "price": "29", "priceCurrency": "EUR"},
-      {"@type": "Offer", "name": "Plan Pro", "price": "59", "priceCurrency": "EUR"}
+      {"@type": "Offer", "name": "Plan Starter", "price": "1", "priceCurrency": "EUR"},
+      {"@type": "Offer", "name": "Plan Pro", "price": "47", "priceCurrency": "EUR"},
+      {"@type": "Offer", "name": "Plan Plus", "price": "97", "priceCurrency": "EUR"}
     ],
     "areaServed": {"@type": "Country", "name": "España"},
     "inLanguage": "es",
@@ -68,7 +68,7 @@
       {
         "@type": "Question",
         "name": "¿Es gratis el TPV para mi bar?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Sí. El plan Gratis de TPV Ya incluye 1 terminal, carta digital, gestión de mesas y cierre de caja diario, sin coste y sin fecha de caducidad."}
+        "acceptedAnswer": {"@type": "Answer", "text": "Puedes probar TPV Ya gratis durante 14 días, sin compromiso. El plan de entrada Starter cuesta solo 1 €/mes e incluye 1 terminal, carta digital, gestión de mesas y cierre de caja diario."}
       },
       {
         "@type": "Question",
@@ -78,7 +78,7 @@
       {
         "@type": "Question",
         "name": "¿Cómo funciona el pago del TPV?",
-        "acceptedAnswer": {"@type": "Answer", "text": "El plan Gratis es gratis para siempre. Los planes de pago se contratan por 12 meses. Puedes pagar mes a mes (29€/mes en Starter) o adelantado con descuento (300€/año en Starter, equivalente a 25€/mes)."}
+        "acceptedAnswer": {"@type": "Answer", "text": "El plan de entrada Starter cuesta solo 1 €/mes. Los planes superiores (Pro 47 €/mes, Plus 97 €/mes) puedes probarlos gratis 14 días y se contratan por 12 meses."}
       },
       {
         "@type": "Question",
@@ -88,7 +88,7 @@
       {
         "@type": "Question",
         "name": "¿Es el TPV más barato de España?",
-        "acceptedAnswer": {"@type": "Answer", "text": "El plan Gratis es totalmente gratuito para 1 terminal, sin coste mensual. El plan Starter cuesta 29€/mes (o 25€/mes en pago anual) para hasta 3 terminales. Es uno de los TPV más baratos del mercado español para hostelería."}
+        "acceptedAnswer": {"@type": "Answer", "text": "El plan de entrada Starter cuesta solo 1 €/mes, de los precios más bajos del mercado español para hostelería. Además puedes probarlo gratis 14 días antes de decidir."}
       },
       {
         "@type": "Question",
@@ -97,8 +97,8 @@
       },
       {
         "@type": "Question",
-        "name": "¿Puedo contratar el soporte con el plan Gratis?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Sí. El soporte técnico es compatible con cualquier plan, incluido el Gratis. Por el precio de un café al día, tu local tiene informático propio."}
+        "name": "¿Puedo contratar el soporte con cualquier plan?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Sí. El soporte técnico es compatible con cualquier plan, incluido el de entrada (Starter). Por el precio de un café al día, tu local tiene informático propio."}
       }
     ]
   }
@@ -235,6 +235,8 @@
     .pricing-price{font-family:var(--font-display);font-size:3.5rem;font-weight:700;line-height:1;color:var(--white)}
     .pricing-price sup{font-size:1.2rem;vertical-align:super}
     .pricing-price sub{font-size:1rem;font-weight:300;color:var(--gray-light)}
+    /* El 0 tachado: el chiste del "gratis" que ahora cuesta 1 euro */
+    .pricing-price .price-was{font-size:2rem;color:var(--gray-light);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px;margin-right:10px;font-weight:700}
     /* Badge anchored to top-right corner of the price number, rotated */
     .free-callout{
       position:absolute;
@@ -417,10 +419,10 @@
     <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;text-transform:uppercase;line-height:1.1;max-width:600px">TPV gratis para empezar.<br>Escala cuando quieras.</h2>
     <div class="pricing-grid">
       <div class="pricing-card">
-        <p class="pricing-plan">TPV Gratis</p>
+        <p class="pricing-plan">Starter</p>
         <div class="pricing-price-wrap">
-          <div class="pricing-price">0<sub> €/mes</sub></div>
-          <span class="free-callout">Gratis para siempre</span>
+          <div class="pricing-price"><s class="price-was">0</s><sup>€</sup>1<sub> /mes</sub></div>
+          <span class="free-callout">Bueno, casi gratis</span>
         </div>
         <p class="pricing-for">Para el bar o café que empieza.</p>
         <ul class="pricing-features">
@@ -430,35 +432,34 @@
           <li>Mesas + reservas</li>
           <li>Equipo (hasta 2)</li>
         </ul>
-        <a href="https://panel.tpvya.com/login?intent=signup&plan=free" class="pricing-cta">Crear cuenta gratuita</a>
+        <a href="https://panel.tpvya.com/login?intent=signup&plan=starter" class="pricing-cta">Empezar por 1 €</a>
       </div>
       <div class="pricing-card featured">
         <span class="badge">Más popular</span>
-        <p class="pricing-plan">Starter</p>
-        <div class="pricing-price"><sup>€</sup>29<sub> /mes</sub></div>
-        <p style="font-size:0.75rem;color:var(--amber);margin-top:4px">o 25€/mes en pago anual (300€/año)</p>
+        <p class="pricing-plan">Pro</p>
+        <div class="pricing-price"><sup>€</sup>47<sub> /mes</sub></div>
         <p class="pricing-for">Restaurante con terraza o 2 salas.</p>
         <ul class="pricing-features">
-          <li>Todo del plan Gratis</li>
+          <li>Todo del plan Starter</li>
           <li>Múltiples PDAs y stations</li>
           <li>Escala y roster de equipo</li>
           <li>Analytics avanzados</li>
           <li>Equipo (hasta 25)</li>
         </ul>
-        <a href="https://panel.tpvya.com/login?intent=signup&plan=starter" class="pricing-cta">Iniciar prueba 14 días gratis</a>
+        <a href="https://panel.tpvya.com/login?intent=signup&plan=pro" class="pricing-cta">Iniciar prueba 14 días gratis</a>
       </div>
       <div class="pricing-card">
-        <p class="pricing-plan">Pro</p>
-        <div class="pricing-price"><sup>€</sup>59<sub> /mes</sub></div>
-        <p class="pricing-for">Cadena pequeña o multilocal.</p>
+        <p class="pricing-plan">Plus</p>
+        <div class="pricing-price"><sup>€</sup>97<sub> /mes</sub></div>
+        <p class="pricing-for">Para grupos y cadenas multilocal.</p>
         <ul class="pricing-features">
-          <li>Todo del plan Starter</li>
+          <li>Todo del plan Pro</li>
           <li>Multi-local</li>
           <li>Marketplace proveedores</li>
           <li>API abierta</li>
           <li>Soporte prioritario</li>
         </ul>
-        <a href="https://panel.tpvya.com/login?intent=signup&plan=pro" class="pricing-cta outline">Iniciar prueba 14 días gratis</a>
+        <a href="https://panel.tpvya.com/login?intent=signup&plan=plus" class="pricing-cta outline">Iniciar prueba 14 días gratis</a>
       </div>
     </div>
   </section>
@@ -466,13 +467,13 @@
   <section class="faq" id="faq">
     <h2 class="section-label">Preguntas frecuentes sobre el TPV</h2>
     <div class="faq-list">
-      <details class="faq-item"><summary>¿Es gratis el TPV para mi bar?</summary><p class="faq-a">Sí. El plan Gratis de TPV Ya incluye 1 terminal TPV, carta digital, gestión de mesas y cierre de caja diario, sin coste y para siempre.</p></details>
+      <details class="faq-item"><summary>¿Es gratis el TPV para mi bar?</summary><p class="faq-a">Puedes probar TPV Ya gratis durante 14 días, sin compromiso. El plan de entrada Starter cuesta solo 1 €/mes e incluye 1 terminal TPV, carta digital, gestión de mesas y cierre de caja diario.</p></details>
       <details class="faq-item"><summary>¿Cuánto tiempo tarda instalar el TPV?</summary><p class="faq-a">El alta del TPV es en menos de 5 minutos desde cualquier tablet o móvil. No requiere instalación de hardware ni técnico especializado.</p></details>
-      <details class="faq-item"><summary>¿Cómo funciona el pago?</summary><p class="faq-a">El plan Gratis es gratis para siempre. Los planes de pago se contratan por 12 meses. Puedes pagar mes a mes (29€/mes en Starter) o adelantar el año completo con descuento: 300€/año en Starter, que sale a 25€/mes.</p></details>
+      <details class="faq-item"><summary>¿Cómo funciona el pago?</summary><p class="faq-a">El plan de entrada Starter cuesta solo 1 €/mes. Los planes superiores (Pro 47 €/mes, Plus 97 €/mes) puedes probarlos gratis 14 días y se contratan por 12 meses.</p></details>
       <details class="faq-item"><summary>¿En qué dispositivos funciona el TPV?</summary><p class="faq-a">El TPV funciona en cualquier tablet, móvil o pantalla con navegador web. Compatible con iPad, Android y cualquier PC. El hardware que ya tienes es suficiente.</p></details>
-      <details class="faq-item"><summary>¿Es el TPV más barato de España?</summary><p class="faq-a">El plan gratuito no tiene coste mensual. El plan Starter cuesta 29€/mes (o 25€/mes en pago anual) para hasta 3 terminales. Es uno de los TPV más baratos del mercado español para hostelería.</p></details>
+      <details class="faq-item"><summary>¿Es el TPV más barato de España?</summary><p class="faq-a">El plan de entrada Starter cuesta solo 1 €/mes, de los precios más bajos del mercado español para hostelería. Además puedes probarlo gratis 14 días antes de decidir.</p></details>
       <details class="faq-item"><summary>¿Qué incluye el Soporte Técnico a 49,90€/mes?</summary><p class="faq-a">Cobertura técnica completa para tu negocio: TPV, impresoras, WiFi, tablets. Asistente inteligente 24/7 que resuelve la mayoría de incidencias al instante. Lo que no se resuelve automáticamente, lo escalamos con respuesta en menos de 2 horas. Pago anual: 499€ (te ahorras 2 meses).</p></details>
-      <details class="faq-item"><summary>¿Puedo contratar el soporte con el plan Gratis?</summary><p class="faq-a">Sí. El soporte técnico es compatible con cualquier plan, incluido el Gratis. Piénsalo así: por el precio de un café al día, tu local tiene informático propio.</p></details>
+      <details class="faq-item"><summary>¿Puedo contratar el soporte con cualquier plan?</summary><p class="faq-a">Sí. El soporte técnico es compatible con cualquier plan, incluido el de entrada (Starter). Piénsalo así: por el precio de un café al día, tu local tiene informático propio.</p></details>
     </div>
   </section>
 
