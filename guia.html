@@ -41,6 +41,7 @@
       };
     }
     function loadClarity(){
+      if(localStorage.getItem('clarity_internal')==='true') return;
       (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -52,7 +53,9 @@
       s.src='//js-eu1.hs-scripts.com/139994805.js';
       s.async=true;document.head.appendChild(s);
     }
-    function loadAll(){loadGA4();loadClarity();loadHubSpot();}
+    function loadAll(){loadGA4();loadHubSpot();}
+    // Clarity carga siempre, independiente del consentimiento de cookies.
+    loadClarity();
     if(consent==='ok') loadAll();
   })();
   </script>

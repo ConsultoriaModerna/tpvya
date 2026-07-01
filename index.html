@@ -151,7 +151,10 @@
       s.src='//js-eu1.hs-scripts.com/139994805.js';
       s.async=true;document.head.appendChild(s);
     }
-    function loadAll(){loadGA4();loadMetaPixel();loadClarity();loadHubSpot();}
+    function loadAll(){loadGA4();loadMetaPixel();loadHubSpot();}
+    // Clarity (analitica UX) carga siempre, sin esperar al banner de cookies.
+    // Respeta el skip de trafico interno. GA/Meta/HubSpot siguen tras "Aceptar".
+    loadClarity();
 
     function showBanner(){
       var b=document.createElement('div');b.id='cookieBanner';
