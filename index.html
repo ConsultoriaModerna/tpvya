@@ -644,6 +644,51 @@
       obs.observe(el);
     });
   </script>
+  <!-- First-party landing analytics: registra TODA visita (ads, organico, referral, outreach) en tpvya_landing_visits. Sin PII. Owner: TPV. -->
+  <script>
+  (function(){
+    var ENDPOINT='https://opywuoiwozovlnljdrxu.supabase.co/functions/v1/tpvya-landing-pageview';
+    var host=window.location.hostname;
+    if(host!=='tpvya.com' && host!=='www.tpvya.com') return; // solo produccion
+    try{
+      var qs=new URLSearchParams(window.location.search);
+      function g(k){var v=qs.get(k);return (v===null||v==='')?null:v;}
+      var t=g('t');
+      var validT=(t&&/^[a-f0-9]{8}$/.test(t))?t:(localStorage.getItem('tpv_tracking_id')||null);
+      var gclid=g('gclid')||g('gbraid')||g('wbraid');
+      var us=g('utm_source'), um=g('utm_medium');
+      var ref=document.referrer||'';
+      var internal=!!ref && ref.indexOf(location.hostname)!==-1;
+      var source;
+      if(t) source='outreach';
+      else if(gclid || um==='cpc' || us==='google') source='ads';
+      else if(us) source=us;
+      else if(ref && !internal) source='referral';
+      else if(internal) source='internal';
+      else source='direct';
+      var SK='tpv_session_id';
+      var sid=sessionStorage.getItem(SK);
+      if(!sid){ sid=(window.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random()); sessionStorage.setItem(SK,sid); }
+      var seen='tpv_lv_'+location.pathname;
+      if(sessionStorage.getItem(seen)) return;
+      sessionStorage.setItem(seen,'1');
+      var body={
+        session_id:sid,
+        page_path:location.pathname,
+        page_query:location.search?location.search.slice(1):null,
+        page_title:document.title,
+        referrer:ref||null,
+        visitor_source:source,
+        utm_source:us, utm_medium:um,
+        utm_campaign:g('utm_campaign'), utm_content:g('utm_content'), utm_term:g('utm_term'),
+        gclid:gclid,
+        tracking_id:validT,
+        screen_resolution:(window.screen?window.screen.width+'x'+window.screen.height:null)
+      };
+      fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,body:JSON.stringify(body)}).catch(function(){});
+    }catch(e){/* nunca romper la UX */}
+  })();
+  </script>
   <!-- Outreach visit tracking: lee ?t= de los emails de campana y atribuye la visita al contacto en HubSpot via Edge Function website-visit-tracker -->
   <script>
   (function(){
