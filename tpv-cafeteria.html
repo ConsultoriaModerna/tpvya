@@ -489,14 +489,27 @@
       var v=new URLSearchParams(location.search).get(k);
       if(v) utmParams[k]=v;
     });
+    // --- Attribution capture: gclid + tracking_id + landing session, reenviados al panel para cerrar visita->registro ---
+    var attrib={};
+    (function(){
+      var q=new URLSearchParams(location.search);
+      var gc=q.get('gclid')||q.get('gbraid')||q.get('wbraid'); if(gc) attrib.gclid=gc;
+      var t=q.get('t'); var vt=(t&&/^[a-f0-9]{8}$/.test(t))?t:(localStorage.getItem('tpv_tracking_id')||''); if(vt) attrib.t=vt;
+      var SK='tpv_session_id', sid=sessionStorage.getItem(SK);
+      if(!sid){ sid=(window.crypto&&crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random()); sessionStorage.setItem(SK,sid); }
+      attrib.ls=sid;
+    })();
     function appendUtms(url){
       var u=new URL(url);
       Object.keys(utmParams).forEach(function(k){u.searchParams.set(k,utmParams[k]);});
+      if(attrib.gclid) u.searchParams.set('gclid',attrib.gclid);
+      if(attrib.t) u.searchParams.set('t',attrib.t);
+      if(attrib.ls) u.searchParams.set('ls',attrib.ls);
       return u.toString();
     }
-    // Forward UTMs to all panel links
+    // Forward UTMs + atribucion a todos los enlaces del panel (ls existe en toda visita)
     document.querySelectorAll('a[href*="panel.tpvya.com"]').forEach(function(a){
-      if(Object.keys(utmParams).length) a.href=appendUtms(a.href);
+      a.href=appendUtms(a.href);
     });
 
     // --- Conversion events on CTA clicks ---
@@ -539,7 +552,7 @@
         if(window.fbq) fbq('track','Lead',{content_name:'signup_form',currency:'EUR',value:120.0});
       }catch(err){/* el tracking nunca debe romper el registro */}
       var redirect='https://panel.tpvya.com/login?email='+encodeURIComponent(email)+'&intent=signup';
-      window.location.href=Object.keys(utmParams).length?appendUtms(redirect):redirect;
+      window.location.href=appendUtms(redirect);
     }
 
     // --- Menú hamburguesa móvil ---
