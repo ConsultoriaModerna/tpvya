@@ -758,6 +758,7 @@
       keepalive:true,
       body:JSON.stringify({
         tracking_id:trackingId,
+        site:window.location.hostname,
         page_url:window.location.pathname,
         page_title:document.title,
         referrer:document.referrer||null,
@@ -790,6 +791,7 @@
       if(!navigator.sendBeacon) return;
       var payload=JSON.stringify({
         tracking_id:trackingId,
+        site:window.location.hostname,
         page_url:window.location.pathname,
         session_id:sessionId,
         session_duration_seconds:d,
