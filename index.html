@@ -49,9 +49,9 @@
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
     "offers": [
-      {"@type": "Offer", "name": "Plan Starter", "price": "1", "priceCurrency": "EUR"},
-      {"@type": "Offer", "name": "Plan Pro", "price": "1", "priceCurrency": "EUR"},
-      {"@type": "Offer", "name": "Plan Plus", "price": "1", "priceCurrency": "EUR"}
+      {"@type": "Offer", "name": "Plan Starter", "price": "1", "priceCurrency": "EUR", "priceValidUntil": "2026-09-30", "availability": "https://schema.org/InStock"},
+      {"@type": "Offer", "name": "Plan Pro", "price": "1", "priceCurrency": "EUR", "priceValidUntil": "2026-09-30", "availability": "https://schema.org/InStock"},
+      {"@type": "Offer", "name": "Plan Plus", "price": "1", "priceCurrency": "EUR", "priceValidUntil": "2026-09-30", "availability": "https://schema.org/InStock"}
     ],
     "areaServed": {"@type": "Country", "name": "España"},
     "inLanguage": "es",
@@ -101,6 +101,21 @@
         "acceptedAnswer": {"@type": "Answer", "text": "Sí. El soporte técnico es compatible con cualquier plan, incluido el de entrada (Starter). Por el precio de un café al día, tu local tiene informático propio."}
       }
     ]
+  }
+  </script>
+
+  <!-- Structured Data: Organization (nodo de entidad canonico para motores de IA).
+       TODO: agregar "sameAs" con Capterra/GetApp/LinkedIn cuando existan esos listados. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TPV Ya",
+    "url": "https://tpvya.com",
+    "logo": "https://tpvya.com/og-image.png",
+    "description": "TPV en la nube para hosteleria en Espana: el punto de venta mas barato y rapido para bares, cafeterias y restaurantes. Alta en 5 minutos, sin permanencia, compatible con VeriFactu.",
+    "areaServed": {"@type": "Country", "name": "Espana"},
+    "contactPoint": {"@type": "ContactPoint", "email": "hola@tpvya.com", "contactType": "customer support", "areaServed": "ES", "availableLanguage": "Spanish"}
   }
   </script>
 
