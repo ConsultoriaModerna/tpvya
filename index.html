@@ -116,18 +116,21 @@
     var CK='tpvya_cookies', consent=localStorage.getItem(CK);
     window._hsq=window._hsq||[];
     window.dataLayer=window.dataLayer||[];
+    // Shim de gtag SIEMPRE definido: los eventos de conversion (cta_click, generate_lead)
+    // encolan en dataLayer aunque gtag.js todavia no haya bajado, en vez de perderse por
+    // un window.gtag indefinido. gtag.js procesa la cola en cuanto carga.
+    window.gtag=window.gtag||function(){dataLayer.push(arguments);};
 
+    var _gaLoaded=false;
     function loadGA4(){
+      if(_gaLoaded) return; _gaLoaded=true;
       var s=document.createElement('script');
       s.src='https://www.googletagmanager.com/gtag/js?id=G-QJDSTBNVQ5';
       s.async=true;document.head.appendChild(s);
-      s.onload=function(){
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag=gtag;
-        gtag('js',new Date());
-        gtag('config','G-QJDSTBNVQ5',{linker:{domains:['panel.tpvya.com'],accept_incoming:true}});
-        gtag('config','AW-17677182853');
-      };
+      gtag('js',new Date());
+      gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});
+      gtag('config','G-QJDSTBNVQ5',{linker:{domains:['panel.tpvya.com'],accept_incoming:true}});
+      gtag('config','AW-17677182853');
     }
     function loadMetaPixel(){
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -151,7 +154,8 @@
       s.src='//js-eu1.hs-scripts.com/139994805.js';
       s.async=true;document.head.appendChild(s);
     }
-    function loadAll(){loadGA4();loadMetaPixel();loadHubSpot();}
+    var _allLoaded=false;
+    function loadAll(){if(_allLoaded)return;_allLoaded=true;loadGA4();loadMetaPixel();loadHubSpot();}
     // Clarity (analitica UX) carga siempre, sin esperar al banner de cookies.
     // Respeta el skip de trafico interno. GA/Meta/HubSpot siguen tras "Aceptar".
     loadClarity();
@@ -171,8 +175,11 @@
       decline:function(){localStorage.setItem(CK,'no');var b=document.getElementById('cookieBanner');if(b)b.remove();}
     };
 
-    if(consent==='ok') loadAll();
-    else if(consent!=='no'){
+    // Default-on (opt-out): analitica/ads cargan salvo rechazo explicito ('no'). El
+    // banner se muestra como aviso de opt-out mientras no haya eleccion guardada. Antes
+    // el gate era 'solo si acepto', y sin aceptacion no salia ninguna conversion de Ads.
+    if(consent!=='no') loadAll();
+    if(!consent){
       if(document.readyState==='complete') showBanner();
       else window.addEventListener('load',showBanner);
     }
@@ -525,7 +532,11 @@
     var attrib={};
     (function(){
       var q=new URLSearchParams(location.search);
-      var gc=q.get('gclid')||q.get('gbraid')||q.get('wbraid'); if(gc) attrib.gclid=gc;
+      // Persistir el gclid (como el tracking_id): si solo vive en la URL se pierde en
+      // cuanto el visitante ve una segunda pagina antes de pulsar el CTA de 1 EUR, y el
+      // alta queda sin attribution_source='ads'. Se guarda al llegar y se reusa despues.
+      var gc=q.get('gclid')||q.get('gbraid')||q.get('wbraid');
+      var vgc=gc||localStorage.getItem('tpv_gclid')||''; if(vgc){ attrib.gclid=vgc; if(gc) localStorage.setItem('tpv_gclid',gc); }
       var t=q.get('t'); var vt=(t&&/^[a-f0-9]{8}$/.test(t))?t:(localStorage.getItem('tpv_tracking_id')||''); if(vt) attrib.t=vt;
       // mismo tpv_session_id que usa el beacon (tpvya_landing_visits.session_id) para el join 1:1
       var SK='tpv_session_id', sid=sessionStorage.getItem(SK);
