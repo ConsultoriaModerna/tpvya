@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Guia de inicio rapido | TPV Ya</title>
+  <title>Guia de inicio rapido: configura tu TPV en 3 pasos | TPV Ya</title>
   <meta name="description" content="Configura tu TPV Ya en 3 pasos: carga tu carta, invita a tu equipo y cobra tu primer pedido. Guia paso a paso." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://tpvya.com/guia" />
@@ -14,31 +14,61 @@
 
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://tpvya.com/guia" />
-  <meta property="og:title" content="Guia de inicio rapido | TPV Ya" />
+  <meta property="og:title" content="Guia de inicio rapido: configura tu TPV en 3 pasos | TPV Ya" />
   <meta property="og:description" content="Configura tu TPV en 3 pasos. Carta, equipo y primer cobro." />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:site_name" content="TPV Ya" />
+  <meta property="og:image" content="https://tpvya.com/og-image.png" />
+
+  <meta name="keywords" content="guia TPV, configurar TPV, TPV Ya paso a paso, dar de alta TPV hosteleria, como usar TPV bar restaurante, alta TPV en 5 minutos" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guia de inicio rapido: configura tu TPV en 3 pasos | TPV Ya" />
+  <meta name="twitter:description" content="Configura tu TPV Ya en 3 pasos: carta, equipo y primer cobro. En menos de 15 minutos desde el movil o tablet." />
+  <meta name="twitter:image" content="https://tpvya.com/og-image.png" />
+  <meta name="geo.region" content="ES" />
+  <meta name="geo.placename" content="Espana" />
+  <link rel="alternate" hreflang="es-ES" href="https://tpvya.com/guia" />
+  <link rel="alternate" hreflang="es" href="https://tpvya.com/guia" />
+
+  <!-- Structured Data: HowTo (guia de configuracion en 3 pasos) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Como configurar tu TPV Ya en 3 pasos",
+    "description": "Configura tu TPV Ya en menos de 15 minutos: carga tu carta, invita a tu equipo y cobra tu primer pedido, todo desde el movil o tablet.",
+    "totalTime": "PT15M",
+    "inLanguage": "es",
+    "step": [
+      {"@type": "HowToStep", "position": 1, "name": "Carga tu carta", "text": "Entra en Menu desde el panel. Carga tu carta manual (categorias y productos con precio e IVA) o por OCR automatico subiendo una foto de tu carta en papel. Asigna el IVA correcto (10% general, 21% alcohol, 4% pan) y modificadores por producto."},
+      {"@type": "HowToStep", "position": 2, "name": "Invita a tu equipo", "text": "Ve a Equipo y anade camareros y cocineros por email o con el QR de fichaje. Asigna roles (Manager, Camarero, Cocina). Los que entran por QR van directo al modo PDA en su movil."},
+      {"@type": "HowToStep", "position": 3, "name": "Cobra tu primer pedido", "text": "En el POS, selecciona una mesa, anade productos y pulsa Enviar; el pedido llega a cocina en tiempo real. Para cobrar, pulsa la mesa y elige metodo (efectivo, tarjeta o bizum). El cliente puede recibir un ticket digital por QR."}
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- Cookie Consent + Analytics (GDPR/LSSI-CE) -->
+  <!-- Cookie Consent + Analytics (GDPR/LSSI-CE). Opt-out por defecto: carga salvo
+       rechazo explicito ('no'). Shim de gtag sincrono + Consent Mode, alineado con index.html. -->
   <script>
   (function(){
     var CK='tpvya_cookies', consent=localStorage.getItem(CK);
     window._hsq=window._hsq||[];
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=window.gtag||function(){dataLayer.push(arguments);};
+    var _gaLoaded=false;
     function loadGA4(){
+      if(_gaLoaded) return; _gaLoaded=true;
       var s=document.createElement('script');
       s.src='https://www.googletagmanager.com/gtag/js?id=G-QJDSTBNVQ5';
       s.async=true;document.head.appendChild(s);
-      s.onload=function(){
-        window.dataLayer=window.dataLayer||[];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag=gtag;
-        gtag('js',new Date());
-        gtag('config','G-QJDSTBNVQ5',{linker:{domains:['panel.tpvya.com'],accept_incoming:true}});
-      };
+      gtag('js',new Date());
+      gtag('consent','default',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});
+      gtag('config','G-QJDSTBNVQ5',{linker:{domains:['panel.tpvya.com'],accept_incoming:true}});
+      gtag('config','AW-17677182853');
     }
     function loadClarity(){
       if(localStorage.getItem('clarity_internal')==='true') return;
@@ -53,10 +83,12 @@
       s.src='//js-eu1.hs-scripts.com/139994805.js';
       s.async=true;document.head.appendChild(s);
     }
-    function loadAll(){loadGA4();loadHubSpot();}
+    var _allLoaded=false;
+    function loadAll(){if(_allLoaded)return;_allLoaded=true;loadGA4();loadHubSpot();}
     // Clarity carga siempre, independiente del consentimiento de cookies.
     loadClarity();
-    if(consent==='ok') loadAll();
+    // Default-on (opt-out): GA4/Ads/HubSpot cargan salvo rechazo explicito.
+    if(consent!=='no') loadAll();
   })();
   </script>
 
